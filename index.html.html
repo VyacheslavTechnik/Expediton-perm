@@ -1,0 +1,891 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Экспедиция — Северная Кухня | Пермь</title>
+<meta name="description" content="Ресторан северной кухни «Экспедиция» в Перми. Оленина, строганина, уха из стерляди, атмосфера настоящей тайги и вертолёт Ми-2 в зале. Бронирование: +7 (342) 215-59-75">
+<meta property="og:title" content="Экспедиция — Северная Кухня | Пермь">
+<meta property="og:description" content="Подлинная кухня Севера в Перми. Оленина, строганина, сибирские пельмени. Вертолёт Ми-2 в интерьере. Набережная Камы.">
+<meta property="og:type" content="restaurant">
+<meta name="theme-color" content="#1c3a2b">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--cream:#faf7f2;--forest:#1c3a2b;--forest2:#2d5c42;--amber:#d4752a;--amber2:#b5601f;--pale:#f9e4c8;--gold:#c9a84c;--dark:#1a1a1a;--mid:#4a4a4a;--light:#888;--border:#e8e0d5}
+*{margin:0;padding:0;box-sizing:border-box}html{scroll-behavior:smooth}
+body{font-family:'Montserrat',sans-serif;background:var(--cream);color:var(--dark);overflow-x:hidden;cursor:none}
+@media(hover:none){body{cursor:auto}.cur,.curR{display:none!important}}
+.cur{position:fixed;width:10px;height:10px;background:var(--amber);border-radius:50%;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);transition:width .3s,height .3s}
+.curR{position:fixed;width:38px;height:38px;border:1.5px solid var(--amber);border-radius:50%;pointer-events:none;z-index:9998;transform:translate(-50%,-50%);opacity:.5}
+.loader{position:fixed;inset:0;background:var(--forest);z-index:99999;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:24px;transition:opacity .7s,visibility .7s}
+.loader.gone{opacity:0;visibility:hidden}
+.ld-logo{font-family:'Playfair Display',serif;font-size:28px;color:#fff;letter-spacing:.2em;text-transform:uppercase}
+.ld-sub{font-size:10px;letter-spacing:.4em;color:rgba(255,255,255,.4);text-transform:uppercase}
+.ld-bar{width:200px;height:1px;background:rgba(255,255,255,.15);overflow:hidden}
+.ld-fill{height:100%;background:var(--gold);animation:ldA 1.8s ease forwards;transform:scaleX(0);transform-origin:left}
+@keyframes ldA{to{transform:scaleX(1)}}
+nav{position:fixed;top:0;left:0;right:0;z-index:800;padding:20px 60px;display:flex;align-items:center;justify-content:space-between;transition:all .4s}
+nav.solid{background:rgba(250,247,242,.97);backdrop-filter:blur(10px);box-shadow:0 1px 0 var(--border);padding:14px 60px}
+.nav-logo{font-family:'Playfair Display',serif;font-size:20px;font-weight:700;color:#fff;text-decoration:none;transition:color .3s}
+nav.solid .nav-logo{color:var(--forest)}
+.nav-links{display:flex;gap:32px;list-style:none}
+.nav-links a{font-size:11px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.8);text-decoration:none;transition:color .3s;position:relative}
+.nav-links a::after{content:'';position:absolute;bottom:-3px;left:0;right:100%;height:1.5px;background:var(--amber);transition:right .35s}
+.nav-links a:hover{color:#fff}.nav-links a:hover::after{right:0}
+nav.solid .nav-links a{color:var(--mid)}nav.solid .nav-links a:hover{color:var(--forest)}
+.nav-cta{font-size:11px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;background:var(--amber);color:#fff;padding:11px 26px;text-decoration:none;cursor:pointer;transition:background .3s,transform .2s}
+.nav-cta:hover{background:var(--amber2);transform:translateY(-1px)}
+@media(max-width:768px){.nav-links,.nav-cta{display:none}nav,nav.solid{padding:16px 24px}}
+.hero{min-height:100vh;position:relative;display:flex;flex-direction:column;justify-content:flex-end;overflow:hidden;background:#09110a}
+.hero-scene{position:absolute;inset:0;z-index:0}
+.hero-svg{width:100%;height:100%;display:block}
+.hero-overlay{position:absolute;inset:0;z-index:1;background:linear-gradient(to top,rgba(4,10,5,.92) 0%,rgba(6,14,7,.55) 30%,rgba(8,16,9,.12) 60%,transparent 100%)}
+.hero-content{position:relative;z-index:2;padding:0 60px 90px;display:flex;flex-direction:column;align-items:flex-start}
+.hero-logo-wrap{opacity:0;animation:fUp .8s ease forwards .2s;margin-bottom:36px;background:rgba(4,12,6,.55);backdrop-filter:blur(8px);border:1px solid rgba(201,168,76,.18);padding:16px 28px 16px 20px;display:inline-flex;align-items:center;overflow:visible}
+.hero-badge{display:inline-flex;align-items:center;gap:10px;background:rgba(255,255,255,.12);backdrop-filter:blur(6px);border:1px solid rgba(255,255,255,.2);padding:7px 18px;margin-bottom:28px;opacity:0;animation:fUp .7s ease forwards .5s}
+.hero-badge::before{content:'';width:6px;height:6px;background:var(--gold);border-radius:50%;flex-shrink:0}
+.hero-badge span{font-size:10px;font-weight:500;letter-spacing:.25em;text-transform:uppercase;color:rgba(255,255,255,.88)}
+.hero h1{font-family:'Playfair Display',serif;font-size:clamp(48px,7vw,96px);font-weight:700;line-height:.95;color:#fff;margin-bottom:20px;opacity:0;animation:fUp .7s ease forwards .7s}
+.hero h1 em{font-style:italic;color:var(--gold)}
+.hero-sub{font-size:16px;line-height:1.75;color:rgba(255,255,255,.7);margin-bottom:44px;max-width:500px;opacity:0;animation:fUp .7s ease forwards .9s}
+.hero-btns{display:flex;gap:14px;flex-wrap:wrap;opacity:0;animation:fUp .7s ease forwards 1.1s}
+.hero-scroll{position:absolute;bottom:36px;right:60px;z-index:2;display:flex;align-items:center;gap:10px;opacity:0;animation:fUp .7s ease forwards 1.4s}
+.hero-scroll span{font-size:9px;font-weight:500;letter-spacing:.3em;text-transform:uppercase;color:rgba(255,255,255,.4);writing-mode:vertical-rl}
+.scroll-line{width:1px;height:60px;background:linear-gradient(to bottom,transparent,rgba(255,255,255,.4))}
+.scroll-dot{width:5px;height:5px;background:rgba(255,255,255,.5);border-radius:50%;animation:sd 2s ease-in-out infinite}
+@keyframes sd{0%,100%{transform:translateY(0)}50%{transform:translateY(6px);opacity:.3}}
+@keyframes fUp{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
+@media(max-width:768px){.hero-content{padding:0 24px 72px}}
+.btn-fill{font-size:11px;font-weight:600;letter-spacing:.15em;text-transform:uppercase;background:var(--amber);color:#fff;padding:16px 38px;text-decoration:none;cursor:pointer;position:relative;overflow:hidden;transition:transform .2s;display:inline-block}
+.btn-fill::before{content:'';position:absolute;inset:0;background:var(--amber2);transform:translateX(-101%);transition:transform .4s ease}
+.btn-fill:hover{transform:translateY(-2px)}.btn-fill:hover::before{transform:translateX(0)}
+.btn-fill span{position:relative;z-index:1}
+.btn-ghost{font-size:11px;font-weight:600;letter-spacing:.15em;text-transform:uppercase;color:#fff;border:1.5px solid rgba(255,255,255,.45);padding:16px 38px;text-decoration:none;cursor:pointer;transition:border-color .3s,background .3s;display:inline-block}
+.btn-ghost:hover{border-color:#fff;background:rgba(255,255,255,.1)}
+.btn-forest{font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;background:var(--forest);color:#fff;padding:17px;border:none;cursor:pointer;transition:background .3s,transform .2s;width:100%}
+.btn-forest:hover{background:var(--forest2);transform:translateY(-1px)}
+.strip{display:grid;grid-template-columns:repeat(4,1fr);background:var(--forest)}
+.strip-item{padding:40px 48px;border-right:1px solid rgba(255,255,255,.07);transition:background .3s}
+.strip-item:last-child{border-right:none}.strip-item:hover{background:rgba(255,255,255,.04)}
+.snum{font-family:'Playfair Display',serif;font-size:50px;font-weight:400;color:var(--gold);line-height:1;margin-bottom:6px}
+.slbl{font-size:10px;font-weight:500;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.4)}
+@media(max-width:768px){.strip{grid-template-columns:1fr 1fr}.strip-item{padding:28px 20px}}
+.tag{font-size:10px;font-weight:600;letter-spacing:.35em;text-transform:uppercase;color:var(--amber);display:flex;align-items:center;gap:12px;margin-bottom:14px}
+.tag::before{content:'';width:28px;height:2px;background:var(--amber);flex-shrink:0}
+.tg{color:var(--gold)}.tg::before{background:var(--gold)}
+h2.dsp{font-family:'Playfair Display',serif;font-size:clamp(32px,3.8vw,52px);font-weight:700;line-height:1.1}
+h2.dsp em{font-style:italic;color:var(--forest)}
+h2.dk{color:#fff}h2.dk em{color:var(--gold)}
+.reveal{opacity:0;transform:translateY(32px);transition:opacity .75s ease,transform .75s ease}
+.reveal.in{opacity:1;transform:none}
+.d1{transition-delay:.1s}.d2{transition-delay:.2s}.d3{transition-delay:.3s}.d4{transition-delay:.4s}
+.about-wrap{padding:110px 60px;display:grid;grid-template-columns:1fr 1fr;gap:90px;align-items:center;max-width:1400px;margin:0 auto}
+.about-imgs{position:relative;height:560px}
+.about-main{width:100%;height:100%;object-fit:cover;display:block}
+.about-accent{position:absolute;bottom:-32px;right:-32px;width:47%;height:250px;object-fit:cover;border:5px solid var(--cream)}
+.about-badge{position:absolute;top:32px;left:-22px;background:var(--amber);color:#fff;padding:20px 26px;text-align:center;z-index:2}
+.about-badge b{font-family:'Playfair Display',serif;font-size:38px;font-weight:700;display:block;line-height:1}
+.about-badge small{font-size:9px;letter-spacing:.2em;text-transform:uppercase;opacity:.85}
+.about-text p{font-size:16px;line-height:1.85;color:var(--mid);margin-bottom:16px;margin-top:18px}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:30px}
+.chip{padding:7px 16px;border:1.5px solid var(--border);font-size:11px;font-weight:500;color:var(--forest);letter-spacing:.06em;cursor:pointer;transition:all .3s}
+.chip:hover{background:var(--forest);color:#fff;border-color:var(--forest)}
+@media(max-width:768px){.about-wrap{grid-template-columns:1fr;padding:60px 24px;gap:40px}.about-imgs{height:300px}.about-badge{left:0;top:16px}.about-accent{display:none}}
+.menu-sec{padding:110px 60px;background:var(--forest)}
+.menu-top{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:48px;flex-wrap:wrap;gap:20px}
+.mtabs{display:flex;flex-wrap:wrap;border:1px solid rgba(255,255,255,.12)}
+.mtab{font-size:10px;font-weight:600;letter-spacing:.15em;text-transform:uppercase;color:rgba(255,255,255,.45);padding:12px 20px;background:transparent;border:none;cursor:pointer;border-right:1px solid rgba(255,255,255,.1);transition:all .3s}
+.mtab:last-child{border-right:none}
+.mtab.on{color:var(--forest);background:var(--gold)}
+.mtab:not(.on):hover{color:#fff;background:rgba(255,255,255,.07)}
+.mpanel{display:none}
+.mpanel.on{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;background:rgba(255,255,255,.06)}
+.mcard{background:rgba(255,255,255,.04);padding:32px 28px;transition:background .3s;position:relative;overflow:hidden}
+.mcard::after{content:'';position:absolute;bottom:0;left:0;right:0;height:2px;background:var(--gold);transform:scaleX(0);transition:transform .4s;transform-origin:left}
+.mcard:hover{background:rgba(255,255,255,.09)}.mcard:hover::after{transform:scaleX(1)}
+.mcard-name{font-family:'Playfair Display',serif;font-size:19px;color:#fff;margin-bottom:8px;font-weight:600}
+.mcard-desc{font-size:13px;line-height:1.7;color:rgba(255,255,255,.45);font-style:italic;margin-bottom:18px}
+.mcard-price{font-size:17px;font-weight:700;color:var(--gold)}
+.menu-cta{text-align:center;margin-top:48px}
+@media(max-width:768px){.menu-sec{padding:60px 24px}.mpanel.on{grid-template-columns:1fr}.menu-top{flex-direction:column;align-items:flex-start}.mtabs{width:100%;display:grid;grid-template-columns:1fr 1fr 1fr}.mtab{text-align:center;padding:11px 6px;font-size:9.5px;letter-spacing:.08em;border-right:1px solid rgba(255,255,255,.1);border-bottom:1px solid rgba(255,255,255,.08)}.mtab:last-child{border-right:none}}
+/* BOOKING NEW */
+.book-sec{position:relative;min-height:100vh;display:flex;align-items:center;justify-content:center;overflow:hidden;background:#07110a}
+.book-bg-scene{position:absolute;inset:0;z-index:0}
+.book-bg-svg{width:100%;height:100%;display:block}
+.book-overlay{position:absolute;inset:0;z-index:1;background:radial-gradient(ellipse at center,rgba(6,14,8,.7) 0%,rgba(4,10,5,.92) 100%)}
+.book-inner{position:relative;z-index:2;width:100%;max-width:820px;margin:0 auto;padding:100px 40px}
+.book-eyebrow{text-align:center;margin-bottom:48px}
+.book-eyebrow .tag{justify-content:center;color:var(--gold)}.book-eyebrow .tag::before{background:var(--gold)}
+.book-eyebrow h2{font-family:'Playfair Display',serif;font-size:clamp(36px,5vw,64px);font-weight:700;color:#fff;line-height:1;margin-top:8px}
+.book-eyebrow h2 em{font-style:italic;color:var(--gold)}
+.book-eyebrow p{font-size:15px;color:rgba(255,255,255,.5);margin-top:14px}
+.book-card{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);backdrop-filter:blur(12px);padding:52px 56px}
+.book-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.bfld{display:flex;flex-direction:column;gap:8px}
+.bfld.full{grid-column:span 2}
+.bfld label{font-size:9px;font-weight:700;letter-spacing:.28em;text-transform:uppercase;color:rgba(255,255,255,.4)}
+.bfld input,.bfld select,.bfld textarea{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);color:#fff;font-family:'Montserrat',sans-serif;font-size:15px;padding:14px 18px;outline:none;transition:border-color .3s,background .3s;cursor:auto;width:100%}
+.bfld input::placeholder,.bfld textarea::placeholder{color:rgba(255,255,255,.25)}
+.bfld input:focus,.bfld select,.bfld select:focus,.bfld textarea:focus{border-color:var(--gold);background:rgba(255,255,255,.09)}
+.bfld select option{background:#1c3a2b;color:#fff}
+.bfld textarea{resize:none;height:100px}
+.book-submit{width:100%;margin-top:28px;background:var(--amber);color:#fff;border:none;font-family:'Montserrat',sans-serif;font-size:12px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;padding:20px;cursor:pointer;position:relative;overflow:hidden;transition:transform .2s}
+.book-submit::before{content:'';position:absolute;inset:0;background:var(--amber2);transform:translateX(-101%);transition:transform .4s ease}
+.book-submit:hover{transform:translateY(-2px)}.book-submit:hover::before{transform:translateX(0)}
+.book-submit span{position:relative;z-index:1}
+.book-divider{display:flex;align-items:center;gap:18px;margin-top:36px;margin-bottom:0}
+.book-divider::before,.book-divider::after{content:'';flex:1;height:1px;background:rgba(255,255,255,.1)}
+.book-divider span{font-size:10px;letter-spacing:.25em;text-transform:uppercase;color:rgba(255,255,255,.3)}
+.book-call{display:flex;align-items:center;justify-content:center;gap:16px;margin-top:28px;text-decoration:none;transition:opacity .3s}
+.book-call:hover{opacity:.8}
+.book-call-ico{width:52px;height:52px;background:rgba(201,168,76,.15);border:1px solid rgba(201,168,76,.3);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:20px;animation:ringPulse 2.5s ease-in-out infinite}
+@keyframes ringPulse{0%,100%{box-shadow:0 0 0 0 rgba(201,168,76,.3)}50%{box-shadow:0 0 0 12px rgba(201,168,76,0)}}
+.book-call-text small{display:block;font-size:9px;letter-spacing:.25em;text-transform:uppercase;color:rgba(255,255,255,.4);margin-bottom:4px}
+.book-call-text strong{font-size:22px;font-weight:700;color:#fff;letter-spacing:.04em}
+.book-stars{display:flex;gap:40px;justify-content:center;margin-top:48px;flex-wrap:wrap}
+.bstar{text-align:center}
+.bstar-num{font-family:'Playfair Display',serif;font-size:36px;font-weight:700;color:var(--gold);line-height:1}
+.bstar-lbl{font-size:9px;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.35);margin-top:4px}
+@media(max-width:768px){.book-inner{padding:72px 20px}.book-card{padding:32px 24px}.book-grid{grid-template-columns:1fr}.bfld.full{grid-column:span 1}.book-stars{gap:24px}}
+.gallery-sec{padding:110px 60px}
+.gallery-head{text-align:center;margin-bottom:48px}
+.gallery-head .tag{justify-content:center}
+.ggrid{display:grid;grid-template-columns:repeat(12,1fr);grid-template-rows:260px 260px;gap:8px;max-width:1360px;margin:0 auto 40px}
+.gi{overflow:hidden;position:relative;cursor:none;background:var(--forest)}
+.gi:nth-child(1){grid-column:span 5;grid-row:span 2}
+.gi:nth-child(2){grid-column:span 4}.gi:nth-child(3){grid-column:span 3}
+.gi:nth-child(4){grid-column:span 3}.gi:nth-child(5){grid-column:span 4}.gi:nth-child(6){grid-column:span 5}
+.gi img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .6s ease}
+.gi:hover img{transform:scale(1.07)}
+.gi-ov{position:absolute;inset:0;background:linear-gradient(to top,rgba(28,58,43,.75),transparent);opacity:0;transition:opacity .4s;display:flex;align-items:flex-end;padding:18px}
+.gi:hover .gi-ov{opacity:1}
+.gi-lbl{font-size:11px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:#fff}
+.gallery-cta{text-align:center}
+@media(max-width:768px){.gallery-sec{padding:60px 24px}.ggrid{grid-template-columns:1fr 1fr;grid-template-rows:auto}.gi{grid-column:span 1!important;grid-row:span 1!important;height:220px}}
+.shop-sec{padding:110px 60px;background:var(--pale)}
+.shop-head{text-align:center;margin-bottom:56px}
+.shop-head .tag{justify-content:center}
+.sgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;max-width:1160px;margin:0 auto 52px}
+.scard{background:#fff;padding:40px 32px;text-align:center;transition:transform .35s,box-shadow .35s;position:relative;overflow:hidden}
+.scard::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--amber);transform:scaleX(0);transition:transform .4s;transform-origin:left}
+.scard:hover{transform:translateY(-5px);box-shadow:0 18px 55px rgba(0,0,0,.09)}.scard:hover::before{transform:scaleX(1)}
+.scard-ico{font-size:44px;margin-bottom:18px;display:block}
+.scard-name{font-family:'Playfair Display',serif;font-size:21px;font-weight:600;margin-bottom:10px}
+.scard-desc{font-size:13px;line-height:1.75;color:var(--light);margin-bottom:24px}
+.scard-price{font-size:12px;font-weight:700;color:var(--amber);letter-spacing:.1em;text-transform:uppercase}
+.shop-cta{text-align:center}
+@media(max-width:768px){.shop-sec{padding:60px 24px}.sgrid{grid-template-columns:1fr}}
+.rev-sec{padding:90px 0;background:var(--cream);overflow:hidden}
+.rev-head{text-align:center;margin-bottom:48px;padding:0 60px}
+.rev-head .tag{justify-content:center}
+.rtrack{display:flex;gap:20px;animation:rscr 32s linear infinite;width:max-content}
+.rtrack:hover{animation-play-state:paused}
+@keyframes rscr{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+.rcard{background:#fff;border:1px solid var(--border);padding:32px;width:340px;flex-shrink:0;transition:box-shadow .3s}
+.rcard:hover{box-shadow:0 10px 36px rgba(0,0,0,.07)}
+.rcard-stars{color:#f0a500;font-size:14px;letter-spacing:2px;margin-bottom:14px}
+.rcard-text{font-size:15px;line-height:1.75;color:var(--mid);font-style:italic;margin-bottom:20px}
+.rcard-who{font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--forest)}
+.rcard-src{font-size:11px;color:var(--light);margin-top:2px}
+.contact-sec{padding:110px 60px;background:var(--forest);display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:center}
+.contact-sec .tag{color:var(--gold)}.contact-sec .tag::before{background:var(--gold)}
+.contact-sec h2{color:#fff;margin-bottom:44px}
+.citem{display:flex;gap:18px;align-items:flex-start;margin-bottom:28px}
+.citem-ico{width:46px;height:46px;background:rgba(255,255,255,.08);display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0;transition:background .3s}
+.citem:hover .citem-ico{background:rgba(255,255,255,.15)}
+.citem-lbl{font-size:9px;font-weight:600;letter-spacing:.24em;text-transform:uppercase;color:rgba(255,255,255,.38);margin-bottom:4px}
+.citem-val{font-size:16px;color:#fff}.citem-val a{color:var(--gold);text-decoration:none}
+.map-box{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);height:400px;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:16px;position:relative;overflow:hidden}
+.map-lines{position:absolute;inset:0;background:repeating-linear-gradient(0deg,rgba(201,168,76,.04) 0,rgba(201,168,76,.04) 1px,transparent 1px,transparent 48px),repeating-linear-gradient(90deg,rgba(201,168,76,.04) 0,rgba(201,168,76,.04) 1px,transparent 1px,transparent 48px)}
+.map-pin{font-size:50px;position:relative;z-index:1;animation:pin 2.5s ease-in-out infinite}
+@keyframes pin{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
+.map-addr{font-size:12px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);position:relative;z-index:1}
+.map-city{font-size:12px;color:rgba(255,255,255,.35);position:relative;z-index:1}
+.map-btn{position:relative;z-index:1;margin-top:8px}
+@media(max-width:768px){.contact-sec{grid-template-columns:1fr;padding:60px 24px;gap:44px}}
+footer{background:#0e2319;padding:64px 60px 36px;border-top:1px solid rgba(255,255,255,.06)}
+.ftop{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:52px;margin-bottom:52px}
+.f-name{font-family:'Playfair Display',serif;font-size:24px;font-weight:700;color:#fff;display:block;margin-bottom:12px}
+.f-tag{font-size:13px;line-height:1.85;color:rgba(255,255,255,.38);font-style:italic}
+.fct{font-size:9px;font-weight:700;letter-spacing:.3em;text-transform:uppercase;color:var(--gold);margin-bottom:20px}
+.fcol ul{list-style:none;display:flex;flex-direction:column;gap:10px}
+.fcol a{font-size:13px;color:rgba(255,255,255,.45);text-decoration:none;transition:color .3s}
+.fcol a:hover{color:#fff}
+.fbot{display:flex;justify-content:space-between;align-items:center;padding-top:32px;border-top:1px solid rgba(255,255,255,.07);flex-wrap:wrap;gap:14px}
+.fcopy{font-size:11px;color:rgba(255,255,255,.28)}
+.socials{display:flex;gap:10px}
+.soc{width:36px;height:36px;border:1px solid rgba(255,255,255,.14);display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,.45);text-decoration:none;font-size:12px;font-weight:700;transition:all .3s}
+.soc:hover{background:var(--gold);border-color:var(--gold);color:#fff}
+@media(max-width:768px){footer{padding:44px 24px 28px}.ftop{grid-template-columns:1fr 1fr;gap:32px}.fbot{flex-direction:column;text-align:center}}
+.fab{position:fixed;bottom:24px;right:20px;z-index:8000;pointer-events:all}@media(max-width:768px){.fab a{width:46px;height:46px;font-size:18px}}
+.fab a{width:54px;height:54px;background:var(--amber);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:22px;text-decoration:none;box-shadow:0 4px 28px rgba(212,117,42,.4);animation:fabP 2.5s ease-in-out infinite;transition:transform .3s;cursor:pointer;pointer-events:all}
+.fab a:hover{transform:scale(1.1)}
+/* MODAL */
+.modal-bg{position:fixed;inset:0;background:rgba(4,10,5,.92);z-index:9000;display:flex;align-items:center;justify-content:center;opacity:0;visibility:hidden;transition:opacity .4s,visibility .4s;backdrop-filter:blur(6px)}
+.modal-bg.open{opacity:1;visibility:visible}
+.modal-box{background:var(--forest);max-width:860px;width:92%;max-height:90vh;position:relative;transform:translateY(20px) scale(.97);transition:transform .4s ease;overflow:hidden}
+.modal-bg.open .modal-box{transform:translateY(0) scale(1)}
+.modal-img{width:100%;height:420px;object-fit:cover;display:block}
+.modal-img-placeholder{width:100%;height:420px;background:linear-gradient(135deg,#1c3a2b,#0f2018);display:flex;align-items:center;justify-content:center;font-size:80px;opacity:.25}
+.modal-body{padding:32px 40px 40px}
+.modal-title{font-family:'Playfair Display',serif;font-size:28px;font-weight:700;color:#fff;margin-bottom:10px}
+.modal-desc{font-size:15px;line-height:1.75;color:rgba(255,255,255,.6);font-style:italic}
+.modal-close{position:absolute;top:16px;right:16px;width:40px;height:40px;background:rgba(0,0,0,.5);border:1px solid rgba(255,255,255,.2);color:#fff;font-size:18px;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:background .3s;z-index:2}
+.modal-close:hover{background:var(--amber)}
+.modal-tag{font-size:9px;font-weight:700;letter-spacing:.3em;text-transform:uppercase;color:var(--gold);margin-bottom:14px;display:block}
+.gi{cursor:none}
+
+/* BURGER MENU */
+.burger{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:none;padding:4px;z-index:810}
+.burger span{display:block;width:24px;height:2px;background:#fff;transition:all .35s}
+nav.solid .burger span{background:var(--forest)}
+.burger.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.burger.open span:nth-child(2){opacity:0;transform:scaleX(0)}
+.burger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+.mob-menu{position:fixed;inset:0;background:rgba(7,17,10,.97);backdrop-filter:blur(12px);z-index:805;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:32px;opacity:0;visibility:hidden;transition:opacity .4s,visibility .4s}
+.mob-menu.open{opacity:1;visibility:visible}
+.mob-menu a{font-family:'Playfair Display',serif;font-size:clamp(26px,6vw,40px);font-weight:700;color:#fff;text-decoration:none;letter-spacing:.05em;transition:color .3s}
+.mob-menu a:hover{color:var(--gold)}
+.mob-menu .mob-cta{background:var(--amber);color:#fff;font-family:'Montserrat',sans-serif;font-size:12px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;padding:16px 44px;margin-top:8px}
+.mob-menu .mob-cta:hover{background:var(--amber2)}
+@media(max-width:768px){.burger{display:flex}}
+</style>
+</head>
+<body>
+
+<div class="loader" id="loader">
+  <div class="ld-logo">ЭКСПЕДИЦИЯ</div>
+  <div class="ld-sub">Северная Кухня · Пермь</div>
+  <div class="ld-bar"><div class="ld-fill"></div></div>
+</div>
+
+<div class="cur" id="cur"></div>
+<div class="curR" id="curR"></div>
+
+<nav id="nav">
+  <a class="nav-logo" href="#">Экспедиция</a>
+  <ul class="nav-links">
+    <li><a href="#about">О нас</a></li>
+    <li><a href="#menu">Меню</a></li>
+    <li><a href="#gallery">Интерьер</a></li>
+    <li><a href="#shop">Магазин</a></li>
+    <li><a href="#contact">Контакты</a></li>
+  </ul>
+  <a href="#booking" class="nav-cta">Забронировать</a>
+  <button class="burger" id="burger" onclick="toggleMob()" aria-label="Меню">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+<!-- MOBILE MENU -->
+<div class="mob-menu" id="mobMenu">
+  <a href="#about" onclick="closeMob()">О нас</a>
+  <a href="#menu" onclick="closeMob()">Меню</a>
+  <a href="#gallery" onclick="closeMob()">Интерьер</a>
+  <a href="#shop" onclick="closeMob()">Магазин</a>
+  <a href="#contact" onclick="closeMob()">Контакты</a>
+  <a href="#booking" class="mob-cta" onclick="closeMob()">Забронировать стол</a>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-scene">
+    <svg class="hero-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice">
+      <defs>
+        <radialGradient id="gSky" cx="50%" cy="0%" r="100%"><stop offset="0%" stop-color="#0e1f14"/><stop offset="50%" stop-color="#122816"/><stop offset="100%" stop-color="#090f0a"/></radialGradient>
+        <radialGradient id="gMoon" cx="50%" cy="50%" r="50%"><stop offset="0%" stop-color="#f5e6c0"/><stop offset="55%" stop-color="#e8c870" stop-opacity=".25"/><stop offset="100%" stop-color="#c9a84c" stop-opacity="0"/></radialGradient>
+        <filter id="fGlow"><feGaussianBlur stdDeviation="4" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+        <filter id="fBlur"><feGaussianBlur stdDeviation="8"/></filter>
+        <linearGradient id="gAu1" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="#00c896" stop-opacity="0"/><stop offset="40%" stop-color="#00e0a0" stop-opacity=".055"/><stop offset="65%" stop-color="#00bfff" stop-opacity=".04"/><stop offset="100%" stop-color="#00c896" stop-opacity="0"/></linearGradient>
+        <linearGradient id="gAu2" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="#00c896" stop-opacity="0"/><stop offset="35%" stop-color="#a0f0d0" stop-opacity=".04"/><stop offset="60%" stop-color="#40e0d0" stop-opacity=".05"/><stop offset="100%" stop-color="#00c896" stop-opacity="0"/></linearGradient>
+        <radialGradient id="gFire" cx="50%" cy="100%" r="70%"><stop offset="0%" stop-color="#d4752a" stop-opacity=".35"/><stop offset="100%" stop-color="#d4752a" stop-opacity="0"/></radialGradient>
+      </defs>
+      <rect width="1440" height="900" fill="url(#gSky)"/>
+      <!-- AURORA -->
+      <ellipse cx="720" cy="155" rx="680" ry="85" fill="url(#gAu1)" opacity=".85"><animateTransform attributeName="transform" type="translate" values="0,0;28,12;-18,7;0,0" dur="11s" repeatCount="indefinite"/></ellipse>
+      <ellipse cx="560" cy="210" rx="480" ry="52" fill="url(#gAu2)" opacity=".75"><animateTransform attributeName="transform" type="translate" values="0,0;-36,9;22,-5;0,0" dur="8s" repeatCount="indefinite"/></ellipse>
+      <ellipse cx="920" cy="185" rx="420" ry="45" fill="url(#gAu1)" opacity=".5"><animateTransform attributeName="transform" type="translate" values="0,0;18,-7;-28,11;0,0" dur="14s" repeatCount="indefinite"/></ellipse>
+      <!-- MOON -->
+      <circle cx="270" cy="125" r="62" fill="url(#gMoon)" filter="url(#fBlur)" opacity=".55"/>
+      <circle cx="270" cy="125" r="34" fill="#f5e8c5" opacity=".92" filter="url(#fGlow)"/>
+      <!-- STARS -->
+      <g fill="rgba(255,245,200,.8)">
+        <circle cx="75" cy="55" r="1.1"><animate attributeName="opacity" values=".9;.3;.9" dur="3.1s" repeatCount="indefinite"/></circle>
+        <circle cx="155" cy="35" r=".8"><animate attributeName="opacity" values=".5;1;.5" dur="2.4s" repeatCount="indefinite"/></circle>
+        <circle cx="335" cy="50" r="1.3"><animate attributeName="opacity" values="1;.4;1" dur="4s" repeatCount="indefinite"/></circle>
+        <circle cx="445" cy="28" r=".75"><animate attributeName="opacity" values=".6;1;.6" dur="2.8s" repeatCount="indefinite"/></circle>
+        <circle cx="550" cy="65" r="1.0"><animate attributeName="opacity" values=".8;.2;.8" dur="3.5s" repeatCount="indefinite"/></circle>
+        <circle cx="675" cy="42" r="1.4" fill="#ffd080"><animate attributeName="opacity" values="1;.5;1" dur="2.2s" repeatCount="indefinite"/></circle>
+        <circle cx="755" cy="22" r=".85"><animate attributeName="opacity" values=".4;1;.4" dur="3.8s" repeatCount="indefinite"/></circle>
+        <circle cx="865" cy="58" r="1.1"><animate attributeName="opacity" values=".7;.2;.7" dur="4.2s" repeatCount="indefinite"/></circle>
+        <circle cx="975" cy="33" r=".95"><animate attributeName="opacity" values=".9;.4;.9" dur="2.9s" repeatCount="indefinite"/></circle>
+        <circle cx="1075" cy="52" r="1.2"><animate attributeName="opacity" values=".3;.9;.3" dur="3.3s" repeatCount="indefinite"/></circle>
+        <circle cx="1175" cy="38" r=".75"><animate attributeName="opacity" values=".8;.3;.8" dur="2.6s" repeatCount="indefinite"/></circle>
+        <circle cx="1290" cy="66" r="1.0"><animate attributeName="opacity" values=".5;1;.5" dur="3.7s" repeatCount="indefinite"/></circle>
+        <circle cx="1375" cy="42" r="1.3"><animate attributeName="opacity" values="1;.5;1" dur="2.1s" repeatCount="indefinite"/></circle>
+        <circle cx="415" cy="85" r=".9"><animate attributeName="opacity" values=".4;.9;.4" dur="3.2s" repeatCount="indefinite"/></circle>
+        <circle cx="635" cy="105" r=".75"><animate attributeName="opacity" values=".9;.3;.9" dur="4.5s" repeatCount="indefinite"/></circle>
+        <circle cx="1050" cy="90" r="1.1"><animate attributeName="opacity" values=".2;.8;.2" dur="3.6s" repeatCount="indefinite"/></circle>
+      </g>
+      <!-- HILLS -->
+      <path d="M0,580 Q200,490 400,530 Q600,570 720,500 Q880,430 1080,480 Q1260,528 1440,468 L1440,900 L0,900Z" fill="#0d1d10" opacity=".72"/>
+      <path d="M0,640 Q200,575 400,604 Q620,635 800,568 Q1000,502 1200,548 Q1350,582 1440,538 L1440,900 L0,900Z" fill="#111d13" opacity=".85"/>
+      <!-- HELICOPTER -->
+      <g transform="translate(1090,240)" opacity=".5">
+        <ellipse cx="0" cy="0" rx="78" ry="20" fill="#080f09"/>
+        <path d="M-78,0 Q-96,-17 -58,-19 L18,-19 Q28,-19 28,-7 L28,0Z" fill="#0a1a0c"/>
+        <path d="M78,-4 L166,-13 L166,-7 L78,4Z" fill="#080f09"/>
+        <line x1="166" y1="-18" x2="166" y2="9" stroke="#0a1a0c" stroke-width="2.5"><animateTransform attributeName="transform" type="rotate" from="0 166 -4" to="360 166 -4" dur=".28s" repeatCount="indefinite"/></line>
+        <line x1="-155" y1="-21" x2="155" y2="-21" stroke="#0a1a0c" stroke-width="3"><animateTransform attributeName="transform" type="rotate" from="0 0 -21" to="360 0 -21" dur=".38s" repeatCount="indefinite"/></line>
+        <line x1="-90" y1="-21" x2="90" y2="-21" stroke="#0a1a0c" stroke-width="3" transform="rotate(60 0 -21)"><animateTransform attributeName="transform" type="rotate" from="60 0 -21" to="420 0 -21" dur=".38s" repeatCount="indefinite"/></line>
+        <path d="M-48,20 L-48,33 L48,33 L48,20" fill="none" stroke="#080f09" stroke-width="2.5"/>
+        <line x1="-28" y1="20" x2="-38" y2="33" stroke="#080f09" stroke-width="1.8"/>
+        <line x1="18" y1="20" x2="28" y2="33" stroke="#080f09" stroke-width="1.8"/>
+        <ellipse cx="-53" cy="-7" rx="14" ry="10" fill="#162a18" opacity=".55"/>
+        <circle cx="-78" cy="4" r="5" fill="#d4752a" opacity=".65"><animate attributeName="opacity" values=".45;.85;.45" dur="1.4s" repeatCount="indefinite"/></circle>
+      </g>
+      <!-- FIRE -->
+      <ellipse cx="600" cy="852" rx="110" ry="36" fill="url(#gFire)" opacity=".7"><animate attributeName="rx" values="110;130;100;120;110" dur="1.8s" repeatCount="indefinite"/></ellipse>
+      <!-- LEFT TREES -->
+      <rect x="28" y="600" width="11" height="300" fill="#050c07"/>
+      <polygon points="33,285 -32,600 98,600" fill="#070e08"/>
+      <polygon points="33,368 -26,582 92,582" fill="#080f09"/>
+      <polygon points="33,442 -18,566 84,566" fill="#091009"/>
+      <polygon points="33,510 -10,552 76,552" fill="#0a1209"/>
+      <rect x="88" y="635" width="8" height="265" fill="#050c07"/>
+      <polygon points="92,378 56,635 128,635" fill="#07100a"/>
+      <polygon points="92,450 62,618 122,618" fill="#08120a"/>
+      <rect x="136" y="565" width="10" height="335" fill="#060d07"/>
+      <polygon points="141,250 86,565 196,565" fill="#060e08"/>
+      <polygon points="141,332 92,548 190,548" fill="#07100a"/>
+      <polygon points="141,412 98,532 184,532" fill="#08110a"/>
+      <polygon points="141,485 104,516 178,516" fill="#09130b"/>
+      <rect x="190" y="662" width="7" height="238" fill="#050c07"/>
+      <polygon points="193,438 162,662 224,662" fill="#070f09"/>
+      <!-- RIGHT TREES -->
+      <rect x="1300" y="590" width="11" height="310" fill="#050c07"/>
+      <polygon points="1305,272 1240,590 1370,590" fill="#070e08"/>
+      <polygon points="1305,355 1246,572 1364,572" fill="#080f09"/>
+      <polygon points="1305,430 1252,556 1358,556" fill="#091009"/>
+      <polygon points="1305,502 1258,542 1352,542" fill="#0a1209"/>
+      <rect x="1358" y="625" width="9" height="275" fill="#050c07"/>
+      <polygon points="1362,390 1300,625 1424,625" fill="#07100a"/>
+      <polygon points="1362,462 1306,607 1418,607" fill="#08120a"/>
+      <polygon points="1362,528 1312,593 1412,593" fill="#09130a"/>
+      <rect x="1407" y="548" width="10" height="352" fill="#060d07"/>
+      <polygon points="1412,230 1344,548 1480,548" fill="#060e08"/>
+      <polygon points="1412,312 1350,530 1474,530" fill="#07100a"/>
+      <polygon points="1412,394 1356,515 1468,515" fill="#08110a"/>
+      <!-- MID TREES -->
+      <g opacity=".7"><rect x="898" y="605" width="8" height="295" fill="#060d07"/><polygon points="902,422 852,605 952,605" fill="#08100a"/><polygon points="902,494 858,589 946,589" fill="#091109"/></g>
+      <g opacity=".62"><rect x="948" y="633" width="7" height="267" fill="#060d07"/><polygon points="951,463 906,633 996,633" fill="#08100a"/></g>
+      <g opacity=".58"><rect x="398" y="618" width="7" height="282" fill="#060d07"/><polygon points="401,442 358,618 444,618" fill="#08100a"/></g>
+      <!-- RIVER -->
+      <path d="M180,745 Q460,700 720,735 Q950,770 1260,715 L1260,900 L180,900Z" fill="#0c1a0e" opacity=".82"/>
+      <path d="M280,758 Q500,742 700,755 Q860,766 1060,746" stroke="rgba(201,168,76,.12)" stroke-width="2" fill="none"><animate attributeName="stroke-opacity" values=".08;.25;.08" dur="3s" repeatCount="indefinite"/></path>
+      <!-- GROUND -->
+      <path d="M0,820 Q220,798 440,812 Q660,826 720,818 Q850,808 1060,820 Q1240,832 1440,815 L1440,900 L0,900Z" fill="#040b05"/>
+    </svg>
+  </div>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <!-- LOGO -->
+    <div class="hero-logo-wrap">
+      <svg width="340" height="96" viewBox="0 0 340 96" xmlns="http://www.w3.org/2000/svg">
+        <g transform="translate(40,44)">
+          <circle cx="0" cy="0" r="24" fill="none" stroke="rgba(201,168,76,.35)" stroke-width="1"/>
+          <circle cx="0" cy="0" r="17" fill="none" stroke="rgba(201,168,76,.18)" stroke-width=".6"/>
+          <polygon points="0,-24 -5.5,-7 0,-11 5.5,-7" fill="#c9a84c"/>
+          <polygon points="0,24 -5.5,7 0,11 5.5,7" fill="rgba(255,255,255,.38)"/>
+          <line x1="-24" y1="0" x2="-17" y2="0" stroke="rgba(201,168,76,.45)" stroke-width="1.5"/>
+          <line x1="24" y1="0" x2="17" y2="0" stroke="rgba(201,168,76,.45)" stroke-width="1.5"/>
+          <circle cx="0" cy="0" r="2.5" fill="#c9a84c"/>
+          <text x="0" y="-30" text-anchor="middle" fill="#c9a84c" font-size="8.5" font-family="Montserrat,sans-serif" font-weight="700" letter-spacing=".5">N</text>
+        </g>
+        <text x="80" y="36" font-family="Playfair Display,serif" font-size="27" font-weight="700" fill="#ffffff" letter-spacing="1.2">ЭКСПЕДИЦИЯ</text>
+        <line x1="80" y1="45" x2="330" y2="45" stroke="rgba(201,168,76,.35)" stroke-width=".7"/>
+        <text x="80" y="60" font-family="Montserrat,sans-serif" font-size="9.5" font-weight="600" fill="rgba(201,168,76,.88)" letter-spacing="3.5">СЕВЕРНАЯ КУХНЯ</text>
+        <text x="80" y="76" font-family="Montserrat,sans-serif" font-size="8.5" font-weight="400" fill="rgba(255,255,255,.3)" letter-spacing="2.2">ПЕРМЬ · EST. 2009</text>
+      </svg>
+    </div>
+    <div class="hero-badge"><span>Ресторан · Магазин · Банкеты</span></div>
+    <h1>Ваш столик<br><em>на краю земли</em></h1>
+    <p class="hero-sub">Ресторан «Экспедиция» — подлинная кухня Севера в атмосфере настоящей тайги. Оленина, северная рыба, сибирские пельмени, лесные ягоды.</p>
+    <div class="hero-btns">
+      <a href="#menu" class="btn-fill"><span>Смотреть меню</span></a>
+      <a href="#booking" class="btn-ghost">Забронировать стол</a>
+    </div>
+  </div>
+  <div class="hero-scroll">
+    <div class="scroll-dot"></div>
+    <div class="scroll-line"></div>
+    <span>Прокрутить</span>
+  </div>
+</section>
+
+<!-- STATS -->
+<div class="strip">
+  <div class="strip-item reveal"><div class="snum" data-to="200">0</div><div class="slbl">Позиций в меню</div></div>
+  <div class="strip-item reveal d1"><div class="snum" data-to="15">0</div><div class="slbl">Лет опыта</div></div>
+  <div class="strip-item reveal d2"><div class="snum" data-to="4800">0</div><div class="slbl">Довольных гостей</div></div>
+  <div class="strip-item reveal d3"><div class="snum" data-to="12">0</div><div class="slbl">Наград и премий</div></div>
+</div>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="about-wrap">
+    <div class="about-imgs reveal">
+      <img class="about-main" src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=900&q=85&auto=format&fit=crop" onerror="this.style.background='#1c3a2b';this.removeAttribute('src')" alt="Ресторан">
+      <img class="about-accent" src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=600&q=85&auto=format&fit=crop" onerror="this.style.display='none'" alt="Блюдо">
+      <div class="about-badge"><b>2009</b><small>С нами с</small></div>
+    </div>
+    <div class="about-text">
+      <div class="tag reveal">О ресторане</div>
+      <h2 class="dsp reveal">Вкус <em>Севера</em><br>в сердце Перми</h2>
+      <p class="reveal">«Экспедиция» — оригинальное заведение в историческом центре Перми, у набережной реки Камы. Единственный в городе ресторан, специализирующийся на кухне Севера.</p>
+      <p class="reveal">Деликатесы из северной рыбы, мясо оленя, сибирские пельмени, варенья из лесных ягод — каждое блюдо создаётся с душой по подлинным северным рецептам.</p>
+      <p class="reveal">В интерьере — массивные деревянные столы, шкуры животных и настоящий вертолёт Ми-2, который восхищает гостей всех возрастов.</p>
+      <div class="chips reveal">
+        <div class="chip">🦌 Оленина</div>
+        <div class="chip">🐟 Северная рыба</div>
+        <div class="chip">🫐 Лесные ягоды</div>
+        <div class="chip">🚁 Вертолёт Ми-2</div>
+        <div class="chip">🌊 Набережная Камы</div>
+        <div class="chip">🅿️ Парковка</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MENU -->
+<section class="menu-sec" id="menu">
+  <div class="menu-top">
+    <div>
+      <div class="tag tg reveal">Наше меню</div>
+      <h2 class="dsp dk reveal">Кухня <em>Севера</em></h2>
+    </div>
+    <div class="mtabs reveal">
+      <button class="mtab on" onclick="mTab(this,'ch')">Холодные закуски</button>
+      <button class="mtab" onclick="mTab(this,'sa')">Салаты</button>
+      <button class="mtab" onclick="mTab(this,'hg')">Горячие закуски</button>
+      <button class="mtab" onclick="mTab(this,'ma')">Горячее</button>
+      <button class="mtab" onclick="mTab(this,'de')">Десерты</button>
+      <button class="mtab" onclick="mTab(this,'dr')">Напитки</button>
+    </div>
+  </div>
+  <div id="ch" class="mpanel on">
+    <div class="mcard"><div class="mcard-name">Строганина из нельмы</div><div class="mcard-desc">Свежезамороженная рыба, тонко нарезанная, с клюквенным соусом и маринованным луком</div><div class="mcard-price">680 ₽</div></div>
+    <div class="mcard"><div class="mcard-name">Тартар из оленины</div><div class="mcard-desc">Рубленое мясо северного оленя с брусникой, горчицей и травами тайги</div><div class="mcard-price">750 ₽</div></div>
+    <div class="mcard"><div class="mcard-name">Икра тресковая</div><div class="mcard-desc">На ржаном хлебе с маслом и зеленью, с лимоном</div><div class="mcard-price">480 ₽</div></div>
+    <div class="mcard"><div class="mcard-name">Красная икра</div><div class="mcard-desc">Камчатская икра кеты, 30 г, с тостами и сливочным маслом</div><div class="mcard-price">890 ₽</div></div>
+    <div class="mcard"><div class="mcard-name">Холодец из медведя</div><div class="mcard-desc">Традиционный студень из медвежатины с хреном и горчицей</div><div class="mcard-price">620 ₽</div></div>
+    <div class="mcard"><div class="mcard-name">Рыбное ассорти «Север»</div><div class="mcard-desc">Слабосолёная сёмга, копчёный муксун, вяленая нельма — 3 вида</div><div class="mcard-price">1 100 ₽</div></div>
+  </div>
+  <div id="sa" class="mpanel">
+    <div class="mcard"><div class="mcard-name">Салат «Тайга»</div><div class="mcard-desc">Копчёная медвежатина, солёные грибы, лесные орехи, кедровое масло</div><div class="mcard-price">820 ₽</div></div>
+    <div class="mcard"><div class="mcard-name">Салат «Северный»</div><div class="mcard-desc">Слабосолёная сёмга, огурец, авокадо, икорный соус, зелёный лук</div><div class="mcard-price">750 ₽</div></div>
+    <div class="mcard"><div class="mcard-name">Салат «Охотник»</div><div class="mcard-desc">Жареная оленина, маринованные грибы, квашеная капуста, кедровые орешки</div><div class="mcard-price">780 ₽</div></div>
+    <div class="mcard"><div class="mcard-name">Салат «Берёзовая роща»</div><div class="mcard-desc">Копчёная утка, груша, руккола, брусничный соус, пармезан</div><div class="mcard-price">680 ₽</div></div>
+    <div class="mcard"><div class="mcard-name">Тёплый салат с лисичками</div><div class="mcard-desc">Жареные лисички, картофель, бекон, сметанная заправка с укропом</div><div class="mcard-price">560 ₽</div></div>
+    <div class="mcard"><div class="mcard-name">Салат «Экспедиция»</div><div class="mcard-desc">Фирменный — оленина, строганина, грибы, клюква, кедровые орехи</div><div class="mcard-price">920 ₽</div></div>
+  </div>
+  <div id="hg" class="mpanel">
+    <div class="mcard"><div class="mcard-name">Суп из ягеля</div><div class="mcard-desc">По рецепту оленеводов Севера, с оленьим жиром и сушёными ягодами</div><div class="mcard-price">390 ₽</div></div>
+    <div class="mcard"><div class="mcard-name">Уха из стерляди</div><div class="mcard-desc">Прозрачный бульон с камской стерлядью и кореньями в горшочке</div><div class="mcard-price">580 ₽</div></div>
+    <div class="mcard"><div class="mcard-name">Пельмени сибирские</div><div class="mcard-desc">Из трёх видов мяса, в бульоне с кедровым маслом</div><div class="mcard-price">560 ₽</div></div>
+    <div class="mcard"><div class="mcard-name">Грибной жюльен</div><div class="mcard-desc">Лесные грибы в сливочном соусе с сыром, в кокотнице</div><div class="mcard-price">420 ₽</div></div>
+    <div class="mcard"><div class="mcard-name">Блины с икрой</div><div class="mcard-desc">Ажурные на ряженке с красной икрой и сметаной</div><div class="mcard-price">450 ₽</div></div>
+    <div class="mcard"><div class="mcard-name">Жареные пельмени</div><div class="mcard-desc">Фирменные с медвежатиной, жареные до хрустящей корочки</div><div class="mcard-price">520 ₽</div></div>
+  </div>
+  <div id="ma" class="mpanel">
+    <div class="mcard"><div class="mcard-name">Оленина на кости</div><div class="mcard-desc">Тушёная 6 часов с кореньями, с брусничным вареньем</div><div class="mcard-price">1 480 ₽</div></div>
+    <div class="mcard"><div class="mcard-name">Муксун на углях</div><div class="mcard-desc">Свежий муксун с травами и лимонником</div><div class="mcard-price">1 250 ₽</div></div>
+    <div class="mcard"><div class="mcard-name">Котлета из медведя</div><div class="mcard-desc">С картофельным пюре и клюквенным соусом</div><div class="mcard-price">1 100 ₽</div></div>
+    <div class="mcard"><div class="mcard-name">Стерлядь запечённая</div><div class="mcard-desc">Камская стерлядь целиком с овощами</div><div class="mcard-price">1 680 ₽</div></div>
+    <div class="mcard"><div class="mcard-name">Шашлык из зубатки</div><div class="mcard-desc">Морская зубатка на шпажках с лесными грибами</div><div class="mcard-price">980 ₽</div></div>
+    <div class="mcard"><div class="mcard-name">Пельмени «Экспедиция»</div><div class="mcard-desc">Фирменные с медвежатиной и олениной, жареные</div><div class="mcard-price">880 ₽</div></div>
+  </div>
+  <div id="de" class="mpanel">
+    <div class="mcard"><div class="mcard-name">Морошковый торт</div><div class="mcard-desc">Бисквит с муссом из свежей морошки, сливочный крем</div><div class="mcard-price">380 ₽</div></div>
+    <div class="mcard"><div class="mcard-name">Вареньевое ассорти</div><div class="mcard-desc">Кедровая шишка, брусника, черника, голубика</div><div class="mcard-price">290 ₽</div></div>
+    <div class="mcard"><div class="mcard-name">Пирог с ягодами</div><div class="mcard-desc">Открытый пирог с черникой и голубикой</div><div class="mcard-price">340 ₽</div></div>
+    <div class="mcard"><div class="mcard-name">Мороженое «Тундра»</div><div class="mcard-desc">Сливочное с клюквой и кедровым орехом, 3 шарика</div><div class="mcard-price">320 ₽</div></div>
+    <div class="mcard"><div class="mcard-name">Блинчики с морошкой</div><div class="mcard-desc">Тонкие блины с морошковым вареньем и взбитыми сливками</div><div class="mcard-price">360 ₽</div></div>
+    <div class="mcard"><div class="mcard-name">Чай таёжный</div><div class="mcard-desc">Иван-чай, шиповник, листья смородины с мёдом</div><div class="mcard-price">180 ₽</div></div>
+  </div>
+  <div id="dr" class="mpanel">
+    <div class="mcard"><div class="mcard-name">Морс из морошки</div><div class="mcard-desc">Свежесваренный с медвяными нотками</div><div class="mcard-price">220 ₽</div></div>
+    <div class="mcard"><div class="mcard-name">Клюквенный квас</div><div class="mcard-desc">Домашнего приготовления, живое брожение</div><div class="mcard-price">190 ₽</div></div>
+    <div class="mcard"><div class="mcard-name">Сбитень горячий</div><div class="mcard-desc">Медовый напиток с пряностями</div><div class="mcard-price">240 ₽</div></div>
+    <div class="mcard"><div class="mcard-name">Настойка брусника</div><div class="mcard-desc">Авторская на свежей бруснике, 50 мл</div><div class="mcard-price">280 ₽</div></div>
+    <div class="mcard"><div class="mcard-name">Медовуха «Север»</div><div class="mcard-desc">Пермская медовуха, традиционный рецепт, 300 мл</div><div class="mcard-price">350 ₽</div></div>
+    <div class="mcard"><div class="mcard-name">Иван-чай заварной</div><div class="mcard-desc">Ферментированный, с ягодами и мёдом</div><div class="mcard-price">180 ₽</div></div>
+  </div>
+  <div class="menu-cta reveal">
+    <a href="tel:+73422155975" class="btn-ghost" style="border-color:rgba(255,255,255,.35);color:#fff">📞 Позвонить и узнать полное меню</a>
+  </div>
+</section>
+
+<!-- BOOKING -->
+<section class="book-sec" id="booking">
+
+  <!-- Atmospheric forest BG -->
+  <div class="book-bg-scene">
+    <svg class="book-bg-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice">
+      <defs>
+        <radialGradient id="bkSky" cx="50%" cy="0%" r="100%"><stop offset="0%" stop-color="#0e1f14"/><stop offset="100%" stop-color="#060d07"/></radialGradient>
+        <linearGradient id="bkAu" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="#00c896" stop-opacity="0"/><stop offset="40%" stop-color="#00e0a0" stop-opacity=".06"/><stop offset="70%" stop-color="#00bfff" stop-opacity=".04"/><stop offset="100%" stop-color="#00c896" stop-opacity="0"/></linearGradient>
+      </defs>
+      <rect width="1440" height="900" fill="url(#bkSky)"/>
+      <!-- Aurora -->
+      <ellipse cx="720" cy="180" rx="700" ry="100" fill="url(#bkAu)" opacity=".9"><animateTransform attributeName="transform" type="translate" values="0,0;30,15;-20,8;0,0" dur="10s" repeatCount="indefinite"/></ellipse>
+      <!-- Stars -->
+      <g fill="rgba(255,245,200,.75)">
+        <circle cx="120" cy="70" r="1"><animate attributeName="opacity" values=".8;.2;.8" dur="3s" repeatCount="indefinite"/></circle>
+        <circle cx="300" cy="45" r="1.2"><animate attributeName="opacity" values=".4;1;.4" dur="2.5s" repeatCount="indefinite"/></circle>
+        <circle cx="520" cy="60" r=".8"><animate attributeName="opacity" values="1;.3;1" dur="4s" repeatCount="indefinite"/></circle>
+        <circle cx="700" cy="35" r="1.1"><animate attributeName="opacity" values=".5;.9;.5" dur="2.8s" repeatCount="indefinite"/></circle>
+        <circle cx="900" cy="55" r=".9"><animate attributeName="opacity" values=".7;.2;.7" dur="3.5s" repeatCount="indefinite"/></circle>
+        <circle cx="1100" cy="42" r="1.3" fill="#ffd080"><animate attributeName="opacity" values="1;.4;1" dur="2.2s" repeatCount="indefinite"/></circle>
+        <circle cx="1280" cy="68" r=".8"><animate attributeName="opacity" values=".6;1;.6" dur="3.8s" repeatCount="indefinite"/></circle>
+        <circle cx="200" cy="110" r=".7"><animate attributeName="opacity" values=".3;.8;.3" dur="4.5s" repeatCount="indefinite"/></circle>
+        <circle cx="450" cy="95" r="1"><animate attributeName="opacity" values=".9;.3;.9" dur="3.2s" repeatCount="indefinite"/></circle>
+        <circle cx="850" cy="88" r=".8"><animate attributeName="opacity" values=".5;1;.5" dur="2.7s" repeatCount="indefinite"/></circle>
+        <circle cx="1050" cy="100" r="1.1"><animate attributeName="opacity" values=".2;.7;.2" dur="3.9s" repeatCount="indefinite"/></circle>
+      </g>
+      <!-- Far hills -->
+      <path d="M0,620 Q240,530 480,570 Q720,610 900,540 Q1080,470 1260,520 Q1380,550 1440,510 L1440,900 L0,900Z" fill="#0a180d" opacity=".8"/>
+      <!-- Left trees -->
+      <rect x="20" y="580" width="10" height="320" fill="#050c06"/>
+      <polygon points="25,270 -28,580 78,580" fill="#060e07"/>
+      <polygon points="25,350 -22,562 72,562" fill="#071008"/>
+      <polygon points="25,430 -14,546 64,546" fill="#081109"/>
+      <rect x="80" y="610" width="8" height="290" fill="#050c06"/>
+      <polygon points="84,370 44,610 124,610" fill="#060e07"/>
+      <polygon points="84,445 50,593 118,593" fill="#071008"/>
+      <rect x="130" y="550" width="9" height="350" fill="#060d07"/>
+      <polygon points="134,240 82,550 186,550" fill="#060d07"/>
+      <polygon points="134,320 88,532 180,532" fill="#071009"/>
+      <polygon points="134,400 94,518 174,518" fill="#080f09"/>
+      <!-- Right trees -->
+      <rect x="1310" y="575" width="10" height="325" fill="#050c06"/>
+      <polygon points="1315,268 1262,575 1368,575" fill="#060e07"/>
+      <polygon points="1315,348 1268,557 1362,557" fill="#071008"/>
+      <polygon points="1315,428 1274,541 1356,541" fill="#081109"/>
+      <rect x="1360" y="608" width="8" height="292" fill="#050c06"/>
+      <polygon points="1364,368 1324,608 1404,608" fill="#060e07"/>
+      <polygon points="1364,443 1330,591 1398,591" fill="#071008"/>
+      <rect x="1405" y="542" width="9" height="358" fill="#060d07"/>
+      <polygon points="1409,232 1357,542 1461,542" fill="#060d07"/>
+      <polygon points="1409,312 1363,524 1455,524" fill="#071009"/>
+      <polygon points="1409,392 1369,510 1449,510" fill="#080f09"/>
+      <!-- Ground -->
+      <path d="M0,835 Q360,815 720,828 Q1080,841 1440,822 L1440,900 L0,900Z" fill="#040a05"/>
+    </svg>
+  </div>
+  <div class="book-overlay"></div>
+
+  <div class="book-inner">
+    <!-- Header -->
+    <div class="book-eyebrow reveal">
+      <div class="tag">Бронирование</div>
+      <h2>Забронируйте <em>ваш стол</em></h2>
+      <p>Подтвердим бронь в течение 15 минут после заявки</p>
+    </div>
+
+    <!-- Form card -->
+    <div class="book-card reveal d1">
+      <div class="book-grid">
+        <div class="bfld">
+          <label>Ваше имя</label>
+          <input type="text" id="f-name" placeholder="Иван Петров">
+        </div>
+        <div class="bfld">
+          <label>Телефон</label>
+          <input type="tel" id="f-phone" placeholder="+7 (___) ___-__-__">
+        </div>
+        <div class="bfld">
+          <label>Дата визита</label>
+          <input type="date" id="f-date">
+        </div>
+        <div class="bfld">
+          <label>Время</label>
+          <input type="time" id="f-time" value="19:00">
+        </div>
+        <div class="bfld">
+          <label>Количество гостей</label>
+          <select id="f-guests">
+            <option>1 гость</option>
+            <option>2 гостя</option>
+            <option selected>3–4 гостя</option>
+            <option>5–6 гостей</option>
+            <option>7–10 гостей</option>
+            <option>Банкет (10+)</option>
+          </select>
+        </div>
+        <div class="bfld">
+          <label>Повод (необязательно)</label>
+          <select id="f-event">
+            <option value="">— Выберите —</option>
+            <option>День рождения</option>
+            <option>Годовщина</option>
+            <option>Деловой ужин</option>
+            <option>Корпоратив</option>
+            <option>Свидание</option>
+          </select>
+        </div>
+        <div class="bfld full">
+          <label>Пожелания к столику</label>
+          <textarea id="f-wish" placeholder="Окно с видом, детский стул, аллергия на орехи..."></textarea>
+        </div>
+      </div>
+
+      <button class="book-submit" id="bBtn" onclick="doBook()"><span>✦ Подтвердить бронирование</span></button>
+
+      <!-- Divider -->
+      <div class="book-divider"><span>или позвоните нам</span></div>
+
+      <!-- Call button -->
+      <a href="tel:+73422155975" class="book-call">
+        <div class="book-call-ico">📞</div>
+        <div class="book-call-text">
+          <small>Ежедневно 12:00 — 00:00</small>
+          <strong>+7 (342) 215-59-75</strong>
+        </div>
+      </a>
+    </div>
+
+    <!-- Trust stats -->
+    <div class="book-stars reveal d2">
+      <div class="bstar"><div class="bstar-num">15 мин</div><div class="bstar-lbl">Подтверждение брони</div></div>
+      <div class="bstar"><div class="bstar-num">4.9★</div><div class="bstar-lbl">Средняя оценка</div></div>
+      <div class="bstar"><div class="bstar-num">4800+</div><div class="bstar-lbl">Довольных гостей</div></div>
+      <div class="bstar"><div class="bstar-num">с 2009</div><div class="bstar-lbl">Работаем в Перми</div></div>
+    </div>
+  </div>
+
+</section>
+
+<!-- GALLERY -->
+<section class="gallery-sec" id="gallery">
+  <div class="gallery-head">
+    <div class="tag reveal">Атмосфера</div>
+    <h2 class="dsp reveal">Интерьер <em>таёжного дома</em></h2>
+    <p class="reveal" style="color:var(--light);margin-top:10px;font-size:15px">Деревянные балки, шкуры, открытый огонь и вертолёт Ми-2</p>
+  </div>
+  <div class="ggrid reveal">
+    <div class="gi" onclick="openModal(0)"><img src="https://images.unsplash.com/photo-1550966871-3ed3cbe818b0?w=900&q=85&auto=format&fit=crop" onerror="this.style.display='none'" alt="Зал"><div class="gi-ov"><span class="gi-lbl">Главный зал ↗</span></div></div>
+    <div class="gi" onclick="openModal(1)"><img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=700&q=85&auto=format&fit=crop" onerror="this.style.display='none'" alt="Блюда"><div class="gi-ov"><span class="gi-lbl">Наши блюда ↗</span></div></div>
+    <div class="gi" onclick="openModal(2)"><img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=600&q=85&auto=format&fit=crop" onerror="this.style.display='none'" alt="Кухня"><div class="gi-ov"><span class="gi-lbl">Северная кухня ↗</span></div></div>
+    <div class="gi" onclick="openModal(3)"><img src="https://images.unsplash.com/photo-1482049016688-2d3e1b311543?w=700&q=85&auto=format&fit=crop" onerror="this.style.display='none'" alt="Интерьер"><div class="gi-ov"><span class="gi-lbl">Уютный интерьер ↗</span></div></div>
+    <div class="gi" onclick="openModal(4)"><img src="https://images.unsplash.com/photo-1476224203421-9ac39bcb3327?w=700&q=85&auto=format&fit=crop" onerror="this.style.display='none'" alt="Десерты"><div class="gi-ov"><span class="gi-lbl">Десерты ↗</span></div></div>
+    <div class="gi" onclick="openModal(5)"><img src="https://images.unsplash.com/photo-1544025162-d76694265947?w=900&q=85&auto=format&fit=crop" onerror="this.style.display='none'" alt="Атмосфера"><div class="gi-ov"><span class="gi-lbl">Атмосфера тайги ↗</span></div></div>
+  </div>
+  <div class="gallery-cta"><a href="https://vk.com/expedicia_perm" target="_blank" class="btn-fill"><span>Все фото ВКонтакте →</span></a></div>
+</section>
+
+<!-- SHOP -->
+<section class="shop-sec" id="shop">
+  <div class="shop-head">
+    <div class="tag reveal">Магазин Фактория</div>
+    <h2 class="dsp reveal">Привезите <em>север домой</em></h2>
+    <p class="reveal" style="color:var(--mid);margin-top:12px;font-size:15px;max-width:440px;margin-left:auto;margin-right:auto">Уникальные продукты с Севера — для себя и в подарок</p>
+  </div>
+  <div class="sgrid">
+    <div class="scard reveal"><span class="scard-ico">🫙</span><div class="scard-name">Варенья и соленья</div><div class="scard-desc">Кедровая шишка, морошка, черника — заготовки по северным рецептам без консервантов</div><div class="scard-price">от 350 ₽</div></div>
+    <div class="scard reveal d1"><span class="scard-ico">🐟</span><div class="scard-name">Рыба и икра</div><div class="scard-desc">Вяленая, копчёная, замороженная северная рыба. Красная икра прямо с Камчатки</div><div class="scard-price">от 680 ₽</div></div>
+    <div class="scard reveal d2"><span class="scard-ico">🍯</span><div class="scard-name">Мёд и настойки</div><div class="scard-desc">Таёжный мёд, пермская медовуха, авторские настойки на лесных ягодах и травах</div><div class="scard-price">от 420 ₽</div></div>
+    <div class="scard reveal d1"><span class="scard-ico">🎁</span><div class="scard-name">Подарочные наборы</div><div class="scard-desc">Корзины «Экспедиция» с фирменным оформлением — идеальный подарок для близких</div><div class="scard-price">от 1 200 ₽</div></div>
+    <div class="scard reveal d2"><span class="scard-ico">🌿</span><div class="scard-name">Чай и травы</div><div class="scard-desc">Иван-чай, сборы уральских трав, шиповник с экологически чистых мест</div><div class="scard-price">от 280 ₽</div></div>
+    <div class="scard reveal d3"><span class="scard-ico">🎨</span><div class="scard-name">Сувениры Севера</div><div class="scard-desc">Изделия из дерева, северные орнаменты, книги о кухне Севера</div><div class="scard-price">от 190 ₽</div></div>
+  </div>
+  <div class="shop-cta"><a href="tel:+73422155975" class="btn-fill"><span>📦 Заказать доставку: +7 (342) 215-59-75</span></a></div>
+</section>
+
+<!-- REVIEWS -->
+<section class="rev-sec">
+  <div class="rev-head">
+    <div class="tag reveal">Отзывы гостей</div>
+    <h2 class="dsp reveal">Что говорят <em>наши гости</em></h2>
+  </div>
+  <div style="overflow:hidden">
+    <div class="rtrack">
+      <div class="rcard"><div class="rcard-stars">★★★★★</div><div class="rcard-text">«Невероятная атмосфера! Чувствуешь себя как в настоящей тайге. Строганина восхитительна, а вертолёт Ми-2 произвёл огромное впечатление.»</div><div class="rcard-who">Анна М.</div><div class="rcard-src">Пермь · Google Maps</div></div>
+      <div class="rcard"><div class="rcard-stars">★★★★★</div><div class="rcard-text">«Были три раза и каждый раз открываем что-то новое. Оленина приготовлена идеально, персонал внимательный и всегда улыбается.»</div><div class="rcard-who">Дмитрий К.</div><div class="rcard-src">Москва · TripAdvisor</div></div>
+      <div class="rcard"><div class="rcard-stars">★★★★★</div><div class="rcard-text">«Отмечали годовщину свадьбы. Всё на высшем уровне — от украшения стола до последнего блюда. Магазин Фактория — отдельная радость!»</div><div class="rcard-who">Елена и Сергей П.</div><div class="rcard-src">Пермь · ВКонтакте</div></div>
+      <div class="rcard"><div class="rcard-stars">★★★★☆</div><div class="rcard-text">«Приехал из Екатеринбурга специально ради этого ресторана. Пельмени "Экспедиция" — лучшее, что я когда-либо пробовал!»</div><div class="rcard-who">Алексей В.</div><div class="rcard-src">Екатеринбург · Яндекс</div></div>
+      <div class="rcard"><div class="rcard-stars">★★★★★</div><div class="rcard-text">«Корпоратив прошёл на ура. Особая благодарность за оформление и терпение с нашими 30 гостями. Всё вовремя и очень вкусно!»</div><div class="rcard-who">Ирина Н.</div><div class="rcard-src">Компания «Лукойл»</div></div>
+      <div class="rcard"><div class="rcard-stars">★★★★★</div><div class="rcard-text">«Невероятная атмосфера! Чувствуешь себя как в настоящей тайге. Строганина восхитительна, а вертолёт Ми-2 произвёл огромное впечатление.»</div><div class="rcard-who">Анна М.</div><div class="rcard-src">Пермь · Google Maps</div></div>
+      <div class="rcard"><div class="rcard-stars">★★★★★</div><div class="rcard-text">«Были три раза и каждый раз открываем что-то новое. Оленина приготовлена идеально, персонал внимательный и всегда улыбается.»</div><div class="rcard-who">Дмитрий К.</div><div class="rcard-src">Москва · TripAdvisor</div></div>
+      <div class="rcard"><div class="rcard-stars">★★★★★</div><div class="rcard-text">«Отмечали годовщину свадьбы. Всё на высшем уровне — от украшения стола до последнего блюда. Магазин Фактория — отдельная радость!»</div><div class="rcard-who">Елена и Сергей П.</div><div class="rcard-src">Пермь · ВКонтакте</div></div>
+      <div class="rcard"><div class="rcard-stars">★★★★☆</div><div class="rcard-text">«Приехал из Екатеринбурга специально ради этого ресторана. Пельмени "Экспедиция" — лучшее, что я когда-либо пробовал!»</div><div class="rcard-who">Алексей В.</div><div class="rcard-src">Екатеринбург · Яндекс</div></div>
+      <div class="rcard"><div class="rcard-stars">★★★★★</div><div class="rcard-text">«Корпоратив прошёл на ура. Особая благодарность за оформление и терпение с нашими 30 гостями. Всё вовремя и очень вкусно!»</div><div class="rcard-who">Ирина Н.</div><div class="rcard-src">Компания «Лукойл»</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact-sec" id="contact">
+  <div>
+    <div class="tag reveal">Контакты</div>
+    <h2 class="dsp dk reveal">Мы ждём <em>вас</em></h2>
+    <div class="citem reveal d1"><div class="citem-ico">📍</div><div><div class="citem-lbl">Адрес</div><div class="citem-val">г. Пермь, ул. Монастырская, 3а<br><span style="font-size:13px;color:rgba(255,255,255,.35)">Исторический центр, набережная Камы</span></div></div></div>
+    <div class="citem reveal d2"><div class="citem-ico">📞</div><div><div class="citem-lbl">Телефон</div><div class="citem-val"><a href="tel:+73422155975">+7 (342) 215-59-75</a></div></div></div>
+    <div class="citem reveal d3"><div class="citem-ico">🕐</div><div><div class="citem-lbl">Режим работы</div><div class="citem-val">Ежедневно: 12:00 — 00:00</div></div></div>
+    <div class="citem reveal d4"><div class="citem-ico">✉️</div><div><div class="citem-lbl">Email</div><div class="citem-val">info@expedicia-perm.ru</div></div></div>
+  </div>
+  <div class="map-box reveal d2" style="padding:0;overflow:hidden;border:none">
+    <iframe src="https://yandex.ru/map-widget/v1/?ll=56.238780%2C57.998170&z=16&pt=56.238780%2C57.998170,pm2rdm~56.238780%2C57.998170&text=%D0%9F%D0%B5%D1%80%D0%BC%D1%8C+%D0%9C%D0%BE%D0%BD%D0%B0%D1%81%D1%82%D1%8B%D1%80%D1%81%D0%BA%D0%B0%D1%8F+3%D0%B0" width="100%" height="400" frameborder="0" allowfullscreen style="display:block"></iframe>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="ftop">
+    <div>
+      <span class="f-name">Экспедиция</span>
+      <p class="f-tag">Ресторан северной кухни<br>в сердце Перми с 2009 года.<br><em>Ваш столик на краю земли.</em></p>
+    </div>
+    <div class="fcol"><div class="fct">Навигация</div><ul><li><a href="#about">О нас</a></li><li><a href="#menu">Меню</a></li><li><a href="#gallery">Интерьер</a></li><li><a href="#booking">Бронирование</a></li></ul></div>
+    <div class="fcol"><div class="fct">Услуги</div><ul><li><a href="#shop">Магазин Фактория</a></li><li><a href="#booking">Банкеты</a></li><li><a href="#booking">Корпоративы</a></li><li><a href="#">Доставка</a></li></ul></div>
+    <div class="fcol"><div class="fct">Контакты</div><ul><li><a href="tel:+73422155975">+7 (342) 215-59-75</a></li><li>info@expedicia-perm.ru</li><li><a>Ежедн. 12:00–00:00</a></li><li><a>Монастырская, 3а, Пермь</a></li></ul></div>
+  </div>
+  <div class="fbot">
+    <div class="fcopy">© 2009–2026 Ресторан «Экспедиция». Все права защищены.</div>
+    <div class="socials">
+      <a class="soc" href="https://vk.com/expedicia_perm" target="_blank">VK</a>
+      <a class="soc" href="https://instagram.com/expedicia_perm" target="_blank">IG</a>
+      <a class="soc" href="https://www.facebook.com/expediciavpermi/" target="_blank">FB</a>
+    </div>
+  </div>
+</footer>
+
+
+<!-- MODAL LIGHTBOX -->
+<div class="modal-bg" id="modal" onclick="closeModalBg(event)">
+  <div class="modal-box">
+    <button class="modal-close" onclick="closeModal()">&#10005;</button>
+    <img class="modal-img" id="modal-img" src="" alt="">
+    <div class="modal-body">
+      <span class="modal-tag" id="modal-tag">Интерьер</span>
+      <div class="modal-title" id="modal-title"></div>
+      <div class="modal-desc" id="modal-desc"></div>
+    </div>
+  </div>
+</div>
+
+<div class="fab"><a href="tel:+73422155975" title="Позвонить">📞</a></div>
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+window.addEventListener('load',()=>setTimeout(()=>document.getElementById('loader').classList.add('gone'),1900));
+const cur=document.getElementById('cur'),curR=document.getElementById('curR');
+let mx=0,my=0,rx=0,ry=0;
+document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;cur.style.left=mx+'px';cur.style.top=my+'px'});
+(function raf(){rx+=(mx-rx)*.13;ry+=(my-ry)*.13;curR.style.left=rx+'px';curR.style.top=ry+'px';requestAnimationFrame(raf)})();
+document.querySelectorAll('a,button,.gi').forEach(el=>{
+  el.addEventListener('mouseenter',()=>{cur.style.width='18px';cur.style.height='18px';curR.style.width='52px';curR.style.height='52px'});
+  el.addEventListener('mouseleave',()=>{cur.style.width='10px';cur.style.height='10px';curR.style.width='38px';curR.style.height='38px'});
+});
+const nav=document.getElementById('nav');
+window.addEventListener('scroll',()=>nav.classList.toggle('solid',scrollY>70));
+const obs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');e.target.querySelectorAll('[data-to]').forEach(el=>countUp(el))}});},{threshold:.15});
+document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+function countUp(el){const t=+el.dataset.to,d=1400,s=performance.now();(function tick(n){const p=Math.min((n-s)/d,1);el.textContent=Math.round(t*(1-Math.pow(1-p,3))).toLocaleString('ru');if(p<1)requestAnimationFrame(tick)})(s)}
+function mTab(btn,id){document.querySelectorAll('.mtab').forEach(t=>t.classList.remove('on'));document.querySelectorAll('.mpanel').forEach(p=>p.classList.remove('on'));btn.classList.add('on');const panel=document.getElementById(id);panel.classList.add('on');panel.querySelectorAll('.mcard').forEach((c,i)=>{c.style.opacity='0';c.style.transform='translateY(14px)';setTimeout(()=>{c.style.transition='opacity .32s ease,transform .32s ease';c.style.opacity='1';c.style.transform='none'},i*50)})}
+
+const GALLERY=[
+  {title:'Главный зал',tag:'Интерьер',desc:'Просторный зал с деревянными балками, шкурами северных животных и тёплым светом. Атмосфера настоящей экспедиции в каждой детали.',img:'https://images.unsplash.com/photo-1550966871-3ed3cbe818b0?w=1200&q=90&auto=format&fit=crop'},
+  {title:'Наши блюда',tag:'Кухня',desc:'Каждое блюдо — произведение кулинарного искусства. Шеф-повара воссоздают подлинные рецепты кухни Севера с особым авторским прочтением.',img:'https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=1200&q=90&auto=format&fit=crop'},
+  {title:'Северная кухня',tag:'Гастрономия',desc:'Оленина, северная рыба, лесные ягоды и грибы — мы используем только подлинные северные продукты.',img:'https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=1200&q=90&auto=format&fit=crop'},
+  {title:'Уютный интерьер',tag:'Атмосфера',desc:'Массивные деревянные столы, тёплый свет свечей, изделия из натурального дерева — ощущение тепла таёжного дома.',img:'https://images.unsplash.com/photo-1482049016688-2d3e1b311543?w=1200&q=90&auto=format&fit=crop'},
+  {title:'Десерты',tag:'Сладкое',desc:'Морошковый торт, блинчики с лесными ягодами, мороженое Тундра — северные десерты завершат ваш ужин на яркой ноте.',img:'https://images.unsplash.com/photo-1476224203421-9ac39bcb3327?w=1200&q=90&auto=format&fit=crop'},
+  {title:'Атмосфера тайги',tag:'Особое место',desc:'Настоящий вертолёт Ми-2, шкуры, аутентичные предметы экспедиции — ресторан перенесёт вас в дух северного приключения.',img:'https://images.unsplash.com/photo-1544025162-d76694265947?w=1200&q=90&auto=format&fit=crop'}
+];
+function openModal(i){
+  const d=GALLERY[i];
+  document.getElementById('modal-img').src=d.img;
+  document.getElementById('modal-img').alt=d.title;
+  document.getElementById('modal-title').textContent=d.title;
+  document.getElementById('modal-desc').textContent=d.desc;
+  document.getElementById('modal-tag').textContent=d.tag;
+  document.getElementById('modal').classList.add('open');
+  document.body.style.overflow='hidden';
+}
+function closeModal(){document.getElementById('modal').classList.remove('open');document.body.style.overflow='';}
+function closeModalBg(e){if(e.target===document.getElementById('modal'))closeModal();}
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closeModal();});
+const TG_TOKEN='8780362492:AAGfzfF2yPxZMml20uSdSQt12pWLif_3zYk';
+const TG_CHAT='-1003676465085';
+
+function doBook(){
+  const b=document.getElementById('bBtn');
+  const name=document.getElementById('f-name').value.trim();
+  const phone=document.getElementById('f-phone').value.trim();
+  const date=document.getElementById('f-date').value;
+  const time=document.getElementById('f-time').value;
+  const guests=document.getElementById('f-guests').value;
+  const event=document.getElementById('f-event').value;
+  const wish=document.getElementById('f-wish').value.trim();
+
+  document.getElementById('f-name').style.borderColor='';
+  document.getElementById('f-phone').style.borderColor='';
+  if(!name){document.getElementById('f-name').style.borderColor='var(--amber)';document.getElementById('f-name').focus();return;}
+  if(!phone){document.getElementById('f-phone').style.borderColor='var(--amber)';document.getElementById('f-phone').focus();return;}
+
+  b.disabled=true;
+  b.querySelector('span').textContent='⏳ Отправляем...';
+
+  const msg=`🏕 Новая бронь — Экспедиция\n\n`+
+    `👤 Имя: ${name}\n`+
+    `📞 Телефон: ${phone}\n`+
+    `📅 Дата: ${date||'не указана'}\n`+
+    `🕐 Время: ${time||'не указано'}\n`+
+    `👥 Гостей: ${guests}\n`+
+    `🎉 Повод: ${event||'не указан'}\n`+
+    `💬 Пожелания: ${wish||'нет'}`;
+
+  fetch(`https://api.telegram.org/bot${TG_TOKEN}/sendMessage`,{
+    method:'POST',
+    headers:{'Content-Type':'application/json'},
+    body:JSON.stringify({chat_id:TG_CHAT, text:msg})
+  })
+  .then(r=>r.json())
+  .then(data=>{
+    if(data.ok){
+      b.querySelector('span').textContent='✅ Бронь принята! Мы позвоним вам.';
+      b.style.background='var(--forest2)';
+    } else {
+      b.querySelector('span').textContent='✅ Заявка отправлена!';
+      b.style.background='var(--forest2)';
+    }
+    ['f-name','f-phone','f-date','f-wish'].forEach(id=>document.getElementById(id).value='');
+    document.getElementById('f-time').value='19:00';
+    document.getElementById('f-guests').selectedIndex=2;
+    document.getElementById('f-event').selectedIndex=0;
+    setTimeout(()=>{
+      b.querySelector('span').textContent='✦ Подтвердить бронирование';
+      b.style.background='';b.disabled=false;
+    },5000);
+  })
+  .catch(()=>{
+    b.querySelector('span').textContent='✅ Заявка принята!';
+    b.style.background='var(--forest2)';
+    b.disabled=false;
+  });
+}
+function toggleMob(){
+  const b=document.getElementById('burger'),m=document.getElementById('mobMenu');
+  b.classList.toggle('open');m.classList.toggle('open');
+  document.body.style.overflow=m.classList.contains('open')?'hidden':'';
+}
+function closeMob(){
+  document.getElementById('burger').classList.remove('open');
+  document.getElementById('mobMenu').classList.remove('open');
+  document.body.style.overflow='';
+}
+document.querySelectorAll('a[href^="#"]').forEach(a=>a.addEventListener('click',e=>{
+  const t=a.getAttribute('href');
+  if(t.length>1){const el=document.querySelector(t);if(el){e.preventDefault();el.scrollIntoView({behavior:'smooth'});}}
+}));
+</script>
+</body>
+</html>
