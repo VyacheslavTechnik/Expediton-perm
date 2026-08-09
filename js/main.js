@@ -108,6 +108,17 @@ function closeModalBg(e){if(e.target===document.getElementById('modal'))closeMod
 // Escape handled above
 function doBook(){
   const b=document.getElementById('bBtn');
+  const consent=document.getElementById('f-consent');
+  const consentLabel=consent.closest('.privacy-consent');
+
+  consentLabel.classList.remove('invalid');
+  if(!consent.checked){
+    consentLabel.classList.add('invalid');
+    consent.focus();
+    b.querySelector('span').textContent='Подтвердите согласие на обработку данных';
+    return;
+  }
+
   b.querySelector('span').textContent='Онлайн-бронирование временно недоступно — позвоните нам';
   b.style.background='var(--forest2)';
 }

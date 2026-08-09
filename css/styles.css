@@ -118,7 +118,11 @@ input[type="date"]::-webkit-calendar-picker-indicator{filter:invert(1);opacity:.
 .bfld input:focus,.bfld select,.bfld select:focus,.bfld textarea:focus{border-color:var(--gold);background:rgba(255,255,255,.09)}
 .bfld select option{background:#1c3a2b;color:#fff}
 .bfld textarea{resize:none;height:100px}
-.book-submit{width:100%;margin-top:28px;background:var(--amber);color:#fff;border:none;font-family:'Montserrat',sans-serif;font-size:12px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;padding:20px;cursor:pointer;position:relative;overflow:hidden;transition:transform .2s}
+.privacy-consent{display:flex;align-items:flex-start;gap:12px;margin-top:24px;color:rgba(255,255,255,.62);font-size:12px;line-height:1.55;cursor:pointer}
+.privacy-consent input{width:18px;height:18px;min-width:18px;margin-top:1px;accent-color:var(--amber);cursor:pointer}
+.privacy-consent.invalid{color:#f0a36a}
+.privacy-consent.invalid input{outline:2px solid var(--amber);outline-offset:2px}
+.book-submit{width:100%;margin-top:20px;background:var(--amber);color:#fff;border:none;font-family:'Montserrat',sans-serif;font-size:12px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;padding:20px;cursor:pointer;position:relative;overflow:hidden;transition:transform .2s}
 .book-submit::before{content:'';position:absolute;inset:0;background:var(--amber2);transform:translateX(-101%);transition:transform .4s ease}
 .book-submit:hover{transform:translateY(-2px)}.book-submit:hover::before{transform:translateX(0)}
 .book-submit span{position:relative;z-index:1}
