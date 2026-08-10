@@ -106,10 +106,11 @@ function openModal(i){
 function closeModal(){document.getElementById('modal').classList.remove('open');document.body.style.overflow='';}
 function closeModalBg(e){if(e.target===document.getElementById('modal'))closeModal();}
 // Escape handled above
-function doBook(){
+async function doBook(){
   const b=document.getElementById('bBtn');
   const consent=document.getElementById('f-consent');
   const consentLabel=consent.closest('.privacy-consent');
+  const originalText='✦ Подтвердить бронирование';
 
   consentLabel.classList.remove('invalid');
   if(!consent.checked){
@@ -119,8 +120,39 @@ function doBook(){
     return;
   }
 
-  b.querySelector('span').textContent='Онлайн-бронирование временно недоступно — позвоните нам';
-  b.style.background='var(--forest2)';
+  const data={
+    name:document.getElementById('f-name').value.trim(),
+    phone:document.getElementById('f-phone').value.trim(),
+    date:document.getElementById('f-date').value,
+    time:document.getElementById('f-time').value,
+    guests:document.getElementById('f-guests').value,
+    event:document.getElementById('f-event').value,
+    wish:document.getElementById('f-wish').value.trim(),
+    website:document.getElementById('f-website').value,
+    consent:true
+  };
+  if(data.name.length<2||data.phone.replace(/\D/g,'').length<7||!data.date){
+    b.querySelector('span').textContent='Заполните имя, телефон и дату визита';
+    return;
+  }
+  if(!window.BOOKING_API_URL){
+    b.querySelector('span').textContent='Подключение бронирования ещё настраивается';
+    return;
+  }
+
+  b.disabled=true;
+  b.querySelector('span').textContent='Отправляем заявку…';
+  try{
+    const res=await fetch(window.BOOKING_API_URL,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(data)});
+    const result=await res.json().catch(()=>({}));
+    if(!res.ok||!result.ok)throw new Error(result.message||'Ошибка отправки');
+    b.querySelector('span').textContent=`✓ Заявка ${result.requestId} отправлена`;
+    b.style.background='var(--forest2)';
+  }catch(error){
+    b.querySelector('span').textContent=error.message||'Не удалось отправить — позвоните нам';
+    b.disabled=false;
+    setTimeout(()=>{b.querySelector('span').textContent=originalText},6000);
+  }
 }
 function toggleMob(){
   const b=document.getElementById('burger'),m=document.getElementById('mobMenu');

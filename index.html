@@ -157,7 +157,7 @@
     <div class="hero-typo-logo" style="opacity:0;animation:fUp .8s ease forwards .2s;margin-bottom:32px">
       <div style="display:flex;align-items:center;gap:18px;margin-bottom:10px">
         <div style="width:40px;height:1px;background:rgba(201,168,76,.5)"></div>
-        <span style="font-family:'Montserrat',sans-serif;font-size:9px;font-weight:700;letter-spacing:.4em;color:rgba(201,168,76,.8);text-transform:uppercase">с 2009 года</span>
+        <span style="font-family:'Montserrat',sans-serif;font-size:9px;font-weight:700;letter-spacing:.4em;color:rgba(201,168,76,.8);text-transform:uppercase">с 2014 года</span>
         <div style="width:40px;height:1px;background:rgba(201,168,76,.5)"></div>
       </div>
       <div style="font-family:'Playfair Display',serif;font-size:clamp(36px,5vw,58px);font-weight:700;color:#fff;letter-spacing:.08em;line-height:1;text-transform:uppercase">Экспедиция</div>
@@ -182,7 +182,7 @@
 <!-- STATS -->
 <div class="strip">
   <div class="strip-item reveal"><div class="snum" data-to="93">0</div><div class="slbl">Позиций в меню</div></div>
-  <div class="strip-item reveal d1"><div class="snum" data-to="15">0</div><div class="slbl">Лет опыта</div></div>
+  <div class="strip-item reveal d1"><div class="snum" data-to="12">0</div><div class="slbl">Лет опыта</div></div>
   <div class="strip-item reveal d2"><div class="snum" data-to="4800">0</div><div class="slbl">Довольных гостей</div></div>
   <div class="strip-item reveal d3"><div class="snum" data-to="12">0</div><div class="slbl">Наград и премий</div></div>
 </div>
@@ -206,7 +206,7 @@
     <div class="about-imgs reveal">
       <img class="about-main" src="https://images.unsplash.com/photo-1568376794508-ae52c6ab3929?w=900&q=85&auto=format&fit=crop" onerror="this.style.background='#1c3a2b';this.removeAttribute('src')" alt="Здание ресторана Экспедиция">
       <img class="about-accent" src="https://images.unsplash.com/photo-1537047902294-62a40c20a6ae?w=600&q=85&auto=format&fit=crop" onerror="this.style.display='none'" alt="Вход в ресторан">
-      <div class="about-badge"><b>2009</b><small>С нами с</small></div>
+      <div class="about-badge"><b>2014</b><small>С нами с</small></div>
     </div>
     <div class="about-text">
       <div class="tag reveal">О ресторане</div>
@@ -541,11 +541,14 @@
           <label>Пожелания к столику</label>
           <textarea id="f-wish" placeholder="Окно с видом, детский стул, аллергия на орехи..."></textarea>
         </div>
+        <div class="booking-hp" aria-hidden="true">
+          <label>Не заполняйте это поле<input type="text" id="f-website" tabindex="-1" autocomplete="off"></label>
+        </div>
       </div>
 
       <label class="privacy-consent">
         <input type="checkbox" id="f-consent" required>
-        <span>Соглашение на обработку персональных данных</span>
+        <span>Я даю <a href="personal-data-consent.html" target="_blank" rel="noopener noreferrer">согласие на обработку персональных данных</a> и ознакомлен(а) с <a href="privacy-policy.html" target="_blank" rel="noopener noreferrer">политикой конфиденциальности</a></span>
       </label>
 
       <button class="book-submit" id="bBtn" onclick="doBook()"><span>✦ Подтвердить бронирование</span></button>
@@ -568,7 +571,7 @@
       <div class="bstar"><div class="bstar-num">15 мин</div><div class="bstar-lbl">Подтверждение брони</div></div>
       <div class="bstar"><div class="bstar-num">4.9★</div><div class="bstar-lbl">Средняя оценка</div></div>
       <div class="bstar"><div class="bstar-num">4800+</div><div class="bstar-lbl">Довольных гостей</div></div>
-      <div class="bstar"><div class="bstar-num">с 2009</div><div class="bstar-lbl">Работаем в Перми</div></div>
+      <div class="bstar"><div class="bstar-num">с 2014</div><div class="bstar-lbl">Работаем в Перми</div></div>
     </div>
   </div>
 
@@ -627,7 +630,7 @@
     <div class="gstrip-item reveal"><div class="gstrip-num">3</div><div class="gstrip-lbl">Уникальных зала</div></div>
     <div class="gstrip-item reveal d1"><div class="gstrip-num">до 60</div><div class="gstrip-lbl">Посадочных мест</div></div>
     <div class="gstrip-item reveal d2"><div class="gstrip-num">Ми-2</div><div class="gstrip-lbl">Вертолёт в зале</div></div>
-    <div class="gstrip-item reveal d3"><div class="gstrip-num">с 2009</div><div class="gstrip-lbl">Работаем в Перми</div></div>
+    <div class="gstrip-item reveal d3"><div class="gstrip-num">с 2014</div><div class="gstrip-lbl">Работаем в Перми</div></div>
   </div>
 
   <div class="gallery-cta reveal"><a href="https://vk.com/expedicia_perm" target="_blank" class="btn-fill"><span>Все фото ВКонтакте →</span></a></div>
@@ -708,33 +711,33 @@
 <section class="directions-sec" id="directions">
   <div class="directions-wrap">
     <div class="tag reveal">Как добраться</div>
-    <h2 class="dsp reveal">Найти нас <em>просто</em></h2>
-    <p class="reveal" style="color:rgba(255,255,255,.55);max-width:520px;margin-bottom:48px">Ресторан находится в историческом центре Перми, в двух шагах от набережной Камы. Ориентир — Свято-Преображенский монастырь.</p>
+    <h2 class="dsp dk reveal">Найти нас <em>просто</em></h2>
+    <p class="directions-lead reveal">Ресторан находится в историческом центре Перми по адресу: улица Монастырская, 3а. Ориентир — набережная Камы.</p>
 
     <div class="dir-grid">
 
       <div class="dir-card reveal">
         <div class="dir-ico">🚗</div>
         <div class="dir-title">На автомобиле</div>
-        <div class="dir-text">Едете по ул. Монастырская в сторону набережной. Дом 3а — кирпичное историческое здание справа. Парковка на улице Монастырская и на прилегающих улицах.</div>
+        <div class="dir-text">Укажите в навигаторе: «Пермь, Монастырская, 3а». Припарковаться можно на Монастырской и соседних улицах при наличии свободных мест.</div>
       </div>
 
       <div class="dir-card reveal d1">
         <div class="dir-ico">🚌</div>
-        <div class="dir-title">На автобусе</div>
-        <div class="dir-text">Автобусы № 1, 2, 4, 14, 34, 53 — остановка «Разгуляй» или «Монастырская». От остановки 3–5 минут пешком вдоль набережной.</div>
+        <div class="dir-title">На общественном транспорте</div>
+        <div class="dir-text">Постройте маршрут до адреса в Яндекс Картах — сервис покажет актуальные автобусы, остановки и время в пути из вашей точки.</div>
       </div>
 
       <div class="dir-card reveal d2">
-        <div class="dir-ico">🚇</div>
-        <div class="dir-title">На трамвае</div>
-        <div class="dir-text">Трамваи № 2, 4, 7, 11 — остановка «Разгуляй». Далее пешком по ул. Монастырская в сторону реки Камы, около 5 минут.</div>
+        <div class="dir-ico">🚶</div>
+        <div class="dir-title">Пешком</div>
+        <div class="dir-text">Ищите дом 3а на улице Монастырской в историческом центре города, рядом с набережной Камы.</div>
       </div>
 
       <div class="dir-card reveal d3">
         <div class="dir-ico">🚕</div>
         <div class="dir-title">На такси</div>
-        <div class="dir-text">Скажите водителю: «Ресторан Экспедиция, Монастырская 3а». Все местные водители знают это место. Яндекс.Такси, Ситимобил, Uber.</div>
+        <div class="dir-text">Укажите точный адрес назначения: «Ресторан Экспедиция, улица Монастырская, 3а». Вход расположен со стороны улицы.</div>
       </div>
 
     </div>
@@ -745,7 +748,10 @@
         <div class="dir-addr-title">г. Пермь, ул. Монастырская, 3а</div>
         <div class="dir-addr-sub">Исторический центр · Набережная реки Камы</div>
       </div>
-      <a href="https://yandex.ru/maps/?text=Пермь+Монастырская+3а+Экспедиция" target="_blank" class="btn-fill" style="margin-left:auto"><span>Открыть в Яндекс.Картах →</span></a>
+      <div class="dir-actions">
+        <a href="https://yandex.ru/maps/?text=Пермь+Монастырская+3а+Экспедиция" target="_blank" rel="noopener noreferrer" class="btn-fill"><span>Построить маршрут →</span></a>
+        <a href="tel:+73422155975" class="dir-call">Позвонить</a>
+      </div>
     </div>
   </div>
 </section>
@@ -755,14 +761,14 @@
   <div class="ftop">
     <div>
       <span class="f-name">Экспедиция</span>
-      <p class="f-tag">Ресторан северной кухни<br>в сердце Перми с 2009 года.<br><em>Ваш столик на краю земли.</em></p>
+      <p class="f-tag">Ресторан северной кухни<br>в сердце Перми с 2014 года.<br><em>Ваш столик на краю земли.</em></p>
     </div>
     <div class="fcol"><div class="fct">Навигация</div><ul><li><a href="#about">О нас</a></li><li><a href="#menu">Меню</a></li><li><a href="#gallery">Интерьер</a></li><li><a href="#booking">Бронирование</a></li></ul></div>
     <div class="fcol"><div class="fct">Услуги</div><ul><li><a href="#shop">Магазин Фактория</a></li><li><a href="#booking">Банкеты</a></li><li><a href="#booking">Корпоративы</a></li><li><a href="#">Доставка</a></li></ul></div>
     <div class="fcol"><div class="fct">Контакты</div><ul><li><a href="tel:+73422155975">+7 (342) 215-59-75</a></li><li><a href="mailto:info@expedicia-perm.ru">info@expedicia-perm.ru</a></li><li><a>Ежедн. 12:00–00:00</a></li><li><a>Монастырская, 3а, Пермь</a></li></ul></div>
   </div>
   <div class="fbot">
-    <div class="fcopy">© 2009–2026 Ресторан «Экспедиция». Все права защищены.</div>
+    <div class="fcopy">© 2014–2026 Ресторан «Экспедиция». Все права защищены.<br><a href="privacy-policy.html">Политика конфиденциальности</a> · <a href="personal-data-consent.html">Согласие на обработку данных</a></div>
     <div class="socials">
       <a class="soc" href="https://vk.com/expedicia_perm" target="_blank">VK</a>
     </div>
@@ -814,6 +820,7 @@
   </div>
 </div>
 
+<script src="js/booking-config.js"></script>
 <script src="js/main.js"></script>
 
 <script src="js/cookies.js"></script>
