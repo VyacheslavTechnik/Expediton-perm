@@ -95,6 +95,22 @@ h2.dk{color:#fff}h2.dk em{color:var(--gold)}
 .mcard-price{font-size:17px;font-weight:700;color:var(--gold)}
 .menu-cta{text-align:center;margin-top:48px}
 @media(max-width:768px){.menu-sec{padding:60px 24px}.mpanel.on{grid-template-columns:1fr}.menu-top{flex-direction:column;align-items:flex-start}.mtabs{width:100%;display:grid;grid-template-columns:1fr 1fr}.mtab{text-align:center;padding:11px 6px;font-size:9.5px;letter-spacing:.08em;border-right:1px solid rgba(255,255,255,.1);border-bottom:1px solid rgba(255,255,255,.08)}.mtab:last-child{border-right:none}}
+/* CORPORATE MANAGER */
+.corp-manager{padding:72px 60px;background:var(--cream)}
+.corp-manager-inner{max-width:1160px;margin:0 auto;display:grid;grid-template-columns:auto minmax(0,1fr) auto;align-items:center;gap:34px;padding:42px 46px;background:#fff;border:1px solid var(--border);box-shadow:0 18px 60px rgba(14,35,25,.08);position:relative;overflow:hidden}
+.corp-manager-inner::before{content:'';position:absolute;left:0;top:0;bottom:0;width:4px;background:var(--amber)}
+.corp-manager-icon{width:64px;height:64px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:var(--forest);color:var(--gold);font-family:'Playfair Display',serif;font-size:28px;flex-shrink:0}
+.corp-manager-content .tag{margin-bottom:12px}
+.corp-manager-content h2{font-family:'Playfair Display',serif;font-size:clamp(25px,3vw,36px);line-height:1.15;color:var(--forest);margin-bottom:12px}
+.corp-manager-content h2 em{color:var(--amber);font-weight:400}
+.corp-manager-content p{max-width:650px;color:var(--mid);font-size:14px;line-height:1.75}
+.corp-manager-actions{display:flex;align-items:center;gap:12px}
+.corp-manager-vk{display:inline-flex;align-items:center;justify-content:center;gap:12px;min-height:52px;padding:0 24px;background:#2787f5;color:#fff;text-decoration:none;font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;white-space:nowrap;transition:transform .2s,background .3s,box-shadow .3s}
+.corp-manager-vk:hover{background:#1c74d9;transform:translateY(-2px);box-shadow:0 10px 26px rgba(39,135,245,.25)}
+.corp-manager-vk-mark{font-size:15px;letter-spacing:0}
+@media(max-width:900px){.corp-manager-inner{grid-template-columns:auto 1fr}.corp-manager-actions{grid-column:2}.corp-manager-vk{white-space:normal;text-align:center}}
+@media(max-width:600px){.corp-manager{padding:48px 20px}.corp-manager-inner{grid-template-columns:1fr;padding:30px 24px;gap:20px}.corp-manager-icon{width:52px;height:52px;font-size:23px}.corp-manager-actions{grid-column:1}.corp-manager-vk{width:100%;padding:0 16px}}
+
 /* BOOKING NEW */
 .book-sec{position:relative;min-height:100vh;display:flex;align-items:center;justify-content:center;overflow:hidden;background:#07110a}
 .book-bg-scene{position:absolute;inset:0;z-index:0}
