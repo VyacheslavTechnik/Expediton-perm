@@ -51,12 +51,6 @@ nav.solid .nav-links a{color:var(--mid)}nav.solid .nav-links a:hover{color:var(-
 .btn-ghost:hover{border-color:#fff;background:rgba(255,255,255,.1)}
 .btn-forest{font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;background:var(--forest);color:#fff;padding:17px;border:none;cursor:pointer;transition:background .3s,transform .2s;width:100%}
 .btn-forest:hover{background:var(--forest2);transform:translateY(-1px)}
-.strip{display:grid;grid-template-columns:repeat(4,1fr);background:var(--forest)}
-.strip-item{padding:40px 48px;border-right:1px solid rgba(255,255,255,.07);transition:background .3s}
-.strip-item:last-child{border-right:none}.strip-item:hover{background:rgba(255,255,255,.04)}
-.snum{font-family:'Playfair Display',serif;font-size:50px;font-weight:400;color:var(--gold);line-height:1;margin-bottom:6px}
-.slbl{font-size:10px;font-weight:500;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.4)}
-@media(max-width:768px){.strip{grid-template-columns:1fr 1fr}.strip-item{padding:28px 20px}}
 .tag{font-size:10px;font-weight:600;letter-spacing:.35em;text-transform:uppercase;color:var(--amber);display:flex;align-items:center;gap:12px;margin-bottom:14px}
 .tag::before{content:'';width:28px;height:2px;background:var(--amber);flex-shrink:0}
 .tg{color:var(--gold)}.tg::before{background:var(--gold)}
@@ -466,9 +460,6 @@ nav.solid .burger span{background:var(--forest)}
   .hero-sub{font-size:14px}
   .hero-btns{flex-direction:column;gap:10px;width:100%}
   .btn-fill,.btn-ghost{display:block;text-align:center;padding:14px 20px;font-size:10px}
-  .strip{grid-template-columns:1fr 1fr}
-  .strip-item{padding:20px 16px}
-  .snum{font-size:36px}
   .mpanel.on{grid-template-columns:1fr}
   .mtabs{grid-template-columns:1fr 1fr}
   .rcard{width:280px;padding:24px}
