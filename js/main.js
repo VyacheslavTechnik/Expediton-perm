@@ -2,7 +2,39 @@ const loaderEl=document.getElementById('loader');
 function hideLoader(){loaderEl.classList.add('gone');}
 window.addEventListener('load',()=>setTimeout(hideLoader,300));
 setTimeout(hideLoader,1000);
-(function(){var d=new Date(),y=d.getFullYear(),m=String(d.getMonth()+1).padStart(2,'0'),day=String(d.getDate()).padStart(2,'0');document.getElementById('f-date').min=y+'-'+m+'-'+day;})(); // страховка — скрыть максимум через 1 сек
+function localDateValue(date=new Date()){
+  const y=date.getFullYear(),m=String(date.getMonth()+1).padStart(2,'0'),d=String(date.getDate()).padStart(2,'0');
+  return `${y}-${m}-${d}`;
+}
+function bookingDateTime(dateValue,timeValue){
+  if(!dateValue||!timeValue)return null;
+  const [year,month,day]=dateValue.split('-').map(Number);
+  const [hours,minutes]=timeValue.split(':').map(Number);
+  return new Date(year,month-1,day,hours,minutes,0,0);
+}
+function updateAvailableBookingTimes(){
+  const dateInput=document.getElementById('f-date');
+  const timeSelect=document.getElementById('f-time');
+  const now=new Date();
+  const today=localDateValue(now);
+  dateInput.min=today;
+
+  const selectedDate=dateInput.value;
+  let firstAvailable='';
+  Array.from(timeSelect.options).forEach(option=>{
+    const slot=bookingDateTime(selectedDate,option.value);
+    option.disabled=Boolean(slot&&selectedDate===today&&slot<=now);
+    if(!option.disabled&&!firstAvailable)firstAvailable=option.value;
+  });
+
+  if(timeSelect.selectedOptions[0]?.disabled)timeSelect.value=firstAvailable;
+  timeSelect.disabled=Boolean(selectedDate===today&&!firstAvailable);
+}
+const bookingDateInput=document.getElementById('f-date');
+bookingDateInput.min=localDateValue();
+bookingDateInput.addEventListener('change',updateAvailableBookingTimes);
+window.addEventListener('focus',updateAvailableBookingTimes);
+updateAvailableBookingTimes();
 const cur=document.getElementById('cur'),curR=document.getElementById('curR');
 let mx=0,my=0,rx=0,ry=0;
 document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;cur.style.left=mx+'px';cur.style.top=my+'px'});
@@ -149,6 +181,13 @@ async function doBook(){
   };
   if(data.name.length<2||data.phone.replace(/\D/g,'').length<7||!data.date){
     b.querySelector('span').textContent='Заполните имя, телефон и дату визита';
+    return;
+  }
+  const visitDateTime=bookingDateTime(data.date,data.time);
+  if(!visitDateTime||visitDateTime<=new Date()){
+    updateAvailableBookingTimes();
+    b.querySelector('span').textContent='Выберите будущую дату и время визита';
+    document.getElementById(data.date<localDateValue()?'f-date':'f-time').focus();
     return;
   }
   if(!window.BOOKING_API_URL){
