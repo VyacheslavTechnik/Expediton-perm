@@ -89,22 +89,38 @@ document.querySelectorAll('.mcard').forEach(card => {
 
 
 const GALLERY=[
-  {title:'Общий зал',tag:'Главное пространство',desc:'Просторный зал с деревянными балками, шкурами северных животных и настоящим вертолётом Ми-2. Здесь собираются все гости — атмосфера настоящей северной экспедиции в каждой детали.',img:'https://images.unsplash.com/photo-1550966871-3ed3cbe818b0?w=1200&q=90&auto=format&fit=crop'},
-  {title:'Палатка',tag:'Особое место',desc:'Уединённый зал в стиле полевого лагеря. Брезентовые элементы, тёплый свет фонарей, полевые ящики и дух северного приключения — идеально для небольшой компании.',img:'https://images.unsplash.com/photo-1504280390367-361c6d9f38f4?w=1200&q=90&auto=format&fit=crop'},
-  {title:'Заимка',tag:'Охотничий стиль',desc:'Камерный зал с охотничьими трофеями, грубой деревянной мебелью и открытым очагом. Для тех, кто ценит уединение и настоящую атмосферу таёжного охотничьего домика.',img:'https://images.unsplash.com/photo-1482192505345-5852718f7798?w=1200&q=90&auto=format&fit=crop'},
+  {title:'Общий зал',tag:'Главное пространство',desc:'Главное пространство ресторана с настоящим вертолётом Ми-2, северным декором и просторной посадкой для гостей. Уникальный интерьер, который запоминается с первого взгляда.',images:['assets/images/atmosphere-main-hall-01.jpg','assets/images/atmosphere-main-hall-02.jpg','assets/images/atmosphere-main-hall-03.jpg']},
+  {title:'Палатка',tag:'Особое место',desc:'Уединённый зал в стилистике экспедиционного лагеря: стены палатки, лыжи, весло и массивная деревянная мебель. Подходит для небольшой компании.',images:['assets/images/atmosphere-palatka-modal.jpg','assets/images/atmosphere-palatka-card.jpg']},
+  {title:'Заимка',tag:'Охотничий стиль',desc:'Камерный зал с охотничьими трофеями, камином и длинным столом для уютных встреч небольшой компании.',images:['assets/images/atmosphere-zaimka-01.jpg','assets/images/atmosphere-zaimka-02.jpg','assets/images/atmosphere-zaimka-03.jpg']},
 ];
+let activeGallery=0,activeGalleryImage=0;
+function showGalleryImage(index){
+  const d=GALLERY[activeGallery],images=d.images;
+  activeGalleryImage=(index+images.length)%images.length;
+  const img=document.getElementById('modal-img');
+  img.src=images[activeGalleryImage];
+  img.alt=`${d.title}, фотография ${activeGalleryImage+1}`;
+  const multiple=images.length>1;
+  document.getElementById('modal-prev').classList.toggle('is-hidden',!multiple);
+  document.getElementById('modal-next').classList.toggle('is-hidden',!multiple);
+  const count=document.getElementById('modal-count');
+  count.classList.toggle('is-hidden',!multiple);
+  count.textContent=multiple?`${activeGalleryImage+1} / ${images.length}`:'';
+}
 function openModal(i){
   const d=GALLERY[i];
-  document.getElementById('modal-img').src=d.img;
-  document.getElementById('modal-img').alt=d.title;
+  activeGallery=i;
+  showGalleryImage(0);
   document.getElementById('modal-title').textContent=d.title;
   document.getElementById('modal-desc').textContent=d.desc;
   document.getElementById('modal-tag').textContent=d.tag;
   document.getElementById('modal').classList.add('open');
   document.body.style.overflow='hidden';
 }
+function changeModalImage(step){showGalleryImage(activeGalleryImage+step);}
 function closeModal(){document.getElementById('modal').classList.remove('open');document.body.style.overflow='';}
 function closeModalBg(e){if(e.target===document.getElementById('modal'))closeModal();}
+document.addEventListener('keydown',e=>{if(!document.getElementById('modal').classList.contains('open'))return;if(e.key==='ArrowLeft')changeModalImage(-1);if(e.key==='ArrowRight')changeModalImage(1);});
 // Escape handled above
 async function doBook(){
   const b=document.getElementById('bBtn');

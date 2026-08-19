@@ -600,44 +600,44 @@
 <section class="gallery-sec" id="gallery">
   <div class="gallery-head">
     <div class="tag tg reveal">Атмосфера</div>
-    <h2 class="dsp dk reveal">Четыре <em>пространства</em></h2>
+    <h2 class="dsp dk reveal">Три <em>пространства</em></h2>
     <p class="reveal">Каждый зал — отдельная история о Севере</p>
   </div>
 
   <div class="zones-grid">
 
     <!-- 1. Общий зал -->
-    <div class="zone reveal" onclick="openModal(0)">
-      <img src="https://images.unsplash.com/photo-1550966871-3ed3cbe818b0?w=900&q=85&auto=format&fit=crop" alt="Общий зал">
+    <div class="zone zone-featured reveal" onclick="openModal(0)">
+      <img src="assets/images/atmosphere-main-hall-01.jpg" alt="Вертолёт Ми-2 в общем зале ресторана" loading="lazy" decoding="async">
       <span class="zone-num">01</span>
       <div class="zone-foot">
         <span class="zone-tag">Главное пространство</span>
         <div class="zone-title">Общий зал</div>
-        <div class="zone-desc">Просторный зал с деревянными балками, шкурами северных животных и настоящим вертолётом Ми-2. Сердце ресторана, где собираются все гости.</div>
+        <div class="zone-desc">Главное пространство ресторана с настоящим вертолётом Ми-2, северным декором и просторной посадкой для гостей.</div>
         <span class="zone-btn">Смотреть</span>
       </div>
     </div>
 
     <!-- 2. Палатка -->
     <div class="zone reveal d1" onclick="openModal(1)">
-      <img src="https://images.unsplash.com/photo-1504280390367-361c6d9f38f4?w=900&q=85&auto=format&fit=crop" alt="Палатка">
+      <img src="assets/images/atmosphere-palatka-card.jpg" alt="Интерьер зала Палатка" loading="lazy" decoding="async">
       <span class="zone-num">02</span>
       <div class="zone-foot">
         <span class="zone-tag">Особое место</span>
         <div class="zone-title">Палатка</div>
-        <div class="zone-desc">Уединённый зал в стиле полевого лагеря экспедиции. Брезентовые элементы, тёплый свет фонарей, дух северного приключения.</div>
+        <div class="zone-desc">Уединённый зал в стилистике экспедиционного лагеря: стены палатки, лыжи, весло и массивная деревянная мебель.</div>
         <span class="zone-btn">Смотреть</span>
       </div>
     </div>
 
     <!-- 3. Заимка -->
     <div class="zone reveal d2" onclick="openModal(2)">
-      <img src="https://images.unsplash.com/photo-1482192505345-5852718f7798?w=900&q=85&auto=format&fit=crop" alt="Заимка">
+      <img src="assets/images/atmosphere-zaimka-01.jpg" alt="Интерьер зала Заимка" loading="lazy" decoding="async">
       <span class="zone-num">03</span>
       <div class="zone-foot">
         <span class="zone-tag">Охотничий стиль</span>
         <div class="zone-title">Заимка</div>
-        <div class="zone-desc">Камерный зал с охотничьими трофеями, грубой деревянной мебелью и открытым очагом. Для тех, кто ценит уединение и атмосферу тайги.</div>
+        <div class="zone-desc">Камерный зал с охотничьими трофеями, камином и длинным столом для уютных встреч небольшой компании.</div>
         <span class="zone-btn">Смотреть</span>
       </div>
     </div>
@@ -818,7 +818,12 @@
 <div class="modal-bg" id="modal" onclick="closeModalBg(event)">
   <div class="modal-box">
     <button class="modal-close" onclick="closeModal()">&#10005;</button>
-    <img class="modal-img" id="modal-img" src="" alt="">
+    <div class="modal-media">
+      <img class="modal-img" id="modal-img" src="" alt="">
+      <button class="modal-arrow modal-arrow-prev" id="modal-prev" onclick="changeModalImage(-1)" aria-label="Предыдущая фотография">&#8592;</button>
+      <button class="modal-arrow modal-arrow-next" id="modal-next" onclick="changeModalImage(1)" aria-label="Следующая фотография">&#8594;</button>
+      <span class="modal-count" id="modal-count" aria-live="polite"></span>
+    </div>
     <div class="modal-body">
       <span class="modal-tag" id="modal-tag">Интерьер</span>
       <div class="modal-title" id="modal-title"></div>
